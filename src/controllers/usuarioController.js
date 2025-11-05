@@ -6,9 +6,9 @@ function autenticar(req, res) {
     var senha = req.body.senhaServer;
 
     if (email == undefined) {
-        res.status(400).send("Seu email está undefined!");
+        res.status(400).send("Suas credenciais estão indefinidas!");
     } else if (senha == undefined) {
-        res.status(400).send("Sua senha está indefinida!");
+        res.status(400).send("Suas credenciais estão indefinidas!");
     } else {
 
         usuarioModel.autenticar(email, senha)
