@@ -1,50 +1,39 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-* {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  text-decoration: none;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
-
 html {
   scroll-behavior: smooth; /* scroll fica mais suave*/
 }
 
-.imgFundo {
-  width: 10vw;
-  height: auto;
-} 
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  flex-direction: row;
+  background-color: aqua;
+  width: 100%;
+  z-index: 1000; /* sobrepoe qualquer elemento */
+  position: fixed;
+}
 
-.logoHollanda img{
+.logoImg img{
   width: 10vw;
-  height: auto;
+  height: 6vw;
   transition: scale 0.6s ease;
   cursor: pointer;
 }
 
-.logoHollanda:hover {
+.logoImg:hover {
   scale: 1.1;
 }
 
-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  flex-direction: row;
-  padding-top: 0.2vw;
-  gap: 10rem;
-  background-color: aqua;
-}
-
-nav {
+header nav {
   display: flex;
   flex-direction: row;
-  gap: 6rem;
+  gap: 2vw;
+  margin: 1vw;
   font-size: 1vw;
+  
 }
 
 nav a {
@@ -54,10 +43,102 @@ nav a {
 
 #chico {
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  height: 100vh;
-  background-image: url(../assets/imgs/chico-buarque.jpg);
+  justify-content: center;
+  align-items: start;
+  background-image: url("../assets/imgs/conhecaMais.jpg");
+  height: 88vh;
   background-size: cover;
   background-position: center;
+  flex-direction: column;
+}
+
+.chicoConteudo {
+  width: 30%;
+  margin-left: 10vw;
+  font-size: 1vw;
+}
+
+#sobre {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  background-color: aqua;
+}
+
+#sobre .imgSobre img{
+  filter: blur(2vw);
+  border-radius: 50%;
+}
+
+#sobre .sobreMimConteudo {
+  width: 50%;
+  line-height: 1.5vw; /* espaçamento das linhas */
+}
+
+#sobre .sobreMimConteudo p {
+  font-size: 1vw;
+}
+
+#conheca {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  background-color: white;
+}
+
+#conheca .conhecaMaisImg img{
+  margin: 1vw;
+}
+
+#conheca .conhecaMaisTexto {
+  width: 50%;
+  line-height: 1.5vw; 
+}
+
+#conheca .conhecaMaisTexto p {
+  font-size: 1vw;
+}
+
+#missao {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: white;
+}
+
+#missao .missaoImg {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#missao .missaoImg img{
+  margin: 1vw;
+  width: 60%;
+}
+
+#missao .missaoValoresTexto {
+  width: 50%;
+  line-height: 1.5vw; 
+}
+
+#missao .missaoValoresTexto p {
+  font-size: 1vw;
+}
+
+.logoImgFooter img{
+  width: 10vw;
+  height: 6vw;
+  transition: scale 0.6s ease;
+  cursor: pointer;
+}
+
+.logoImgFooter:hover {
+  scale: 1.1;
 }
