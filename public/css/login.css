@@ -24,6 +24,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #FDF8F0;
     width: 50%;
     height: 100%;
 }
@@ -70,7 +71,7 @@
 }
 
 .conteudoCaixa .formulario .inputCaixa input[type=submit]{
-    background: #4aa4ee;
+    background: #BC9B9A;
     color: #fff;
     border: none;
     outline: none;
