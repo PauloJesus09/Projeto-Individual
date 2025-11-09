@@ -81,45 +81,90 @@
 
     <!-- Missão e Valores -->
     <section id="missao">
-      <div class="missaoImg">
-        <img src="./assets/imgs/ods16.jpg">
+      <div class="carrousel">
+        <img id="img1" src="./assets/imgs/ods16.jpg" class="active">
+        <img id="img2" src="./assets/imgs/ods10.jpg">
+        <img id="img3" src="./assets/imgs/ods4.webp">
       </div>
 
-      <div class="missaoValoresTexto">
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-        </p>
-      </div>
+        <div class="missaoValoresTexto">
+          <p id="txt1" class="active">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+          </p>
+          <p id="txt2">bdfbdfbdfbfdbdfbfb
+          </p>
+          <p id="txt3">aasdasdsadsadsasdfadsf
+          </p>
+        </div>
     </section>
     <!-- Missão e Valores -->
 
     <hr>
 
-    <footer>
-      <nav>
-        <li><a href="#">Início</a></li>
-        <li><a href="#sobre">Sobre Mim</a></li>
-        <li><a href="#conheca">Conheça Mais</a></li>
-        <li><a href="#missao">Missão</a></li>
-        <li class="login"><a href="login.html"> Login </a></li>
-        <li class="cadastro"><a href="cadastro.html"> Cadastro </a></li>
-      </nav>
-
-      <div class="logoImgFooter">
-        <img src="./assets/imgs/logoHollanda.png" alt="Logo do WebSite">
+    <!-- Footer -->
+    <!-- <footer>
+      <div class="footerNav">
+        <ul>
+          <li><a href="#">Início</a></li>
+          <li><a href="#sobre">Sobre Mim</a></li>
+          <li><a href="#conheca">Conheça Mais</a></li>
+          <li><a href="#missao">Missão</a></li>
+          <li class="login"><a href="login.html"> Login </a></li>
+          <li class="cadastro"><a href="cadastro.html"> Cadastro </a></li>
+        </ul>
       </div>
 
       <div class="footerContainer">
         <div class="socialIcons">
-          <a href=""><i class="fa-brands fa-instagram"></i></a>
-          <a href=""><i class="fa-brands fa-github"></i></a>
+          <a href="https://www.instagram.com/pxuloow"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://github.com/PauloJesus09"><i class="fa-brands fa-github"></i></a>
           <a href=""><i class="fa-brands fa-linkedin"></i></a>
         </div>
 
       <div class="footerBottom">
         <p>Direitos Autorais &copy;2025; Feito Por <span class="designer">Paulo</span></p>
       </div>
-    </footer>
+    </footer> -->
+    <!-- Footer -->
       
     <script src="./js/sessao.js"></script>
 </body>
 </html>
+<script>
+  //var imagem = document.querrySelectorAll('.carousel img');
+
+  var img1 = document.getElementById('img1'); 
+  var img2 = document.getElementById('img2'); 
+  var img3 = document.getElementById('img3'); 
+
+  var texto1 = document.getElementById('txt1'); 
+  var texto2 = document.getElementById('txt2'); 
+  var texto3 = document.getElementById('txt3'); 
+
+  var imagem = [img1, img2, img3];
+  var texto = [txt1, txt2, txt3];
+
+  var imgAtual = 0;
+  var txtAtual = 0;
+
+  setInterval(() => {
+    texto[txtAtual].classList.remove('active');
+    txtAtual++;
+    
+    if (txtAtual >= texto.length) {
+      txtAtual = 0;
+    }
+    
+    texto[txtAtual].classList.add('active');
+  }, 5000);
+
+  setInterval(() => {
+    imagem[imgAtual].classList.remove('active');
+    imgAtual++;
+    
+    if (imgAtual >= imagem.length) {
+      imgAtual = 0;
+    }
+    
+    imagem[imgAtual].classList.add('active');
+  }, 5000);
+</script>

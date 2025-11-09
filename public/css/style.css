@@ -10,10 +10,11 @@ header {
   align-items: center;
   text-align: center;
   flex-direction: row;
-  background-color: aqua;
+  background-color: rgba(245, 245, 245, 0.4); /* faz o blur funcionar */
   width: 100%;
   z-index: 1000; /* sobrepoe qualquer elemento */
   position: fixed;
+  backdrop-filter: blur(10px);
 }
 
 .logoImg img{
@@ -33,7 +34,6 @@ header nav {
   gap: 2vw;
   margin: 1vw;
   font-size: 1vw;
-  
 }
 
 nav a {
@@ -132,6 +132,62 @@ nav a {
   font-size: 1vw;
 }
 
+/* Carrousel Imagens */
+
+#missao .carrousel {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 20vw;
+  height: 15vw;
+  overflow: hidden;
+  border-radius: 10px;
+  margin: 5vw;
+  position: relative; /* importante pro absolute funcionar */
+}
+
+#missao .carrousel img {
+  width: 100%;
+  height: 100%;
+  position: absolute; /* empilha as imagens */
+  opacity: 0;
+  transition: opacity 1s ease-in-out; 
+}
+
+#missao .carrousel img.active {
+  opacity: 1; /* só a imagem ativa aparece */
+}
+
+/* Carrousel Imagens */
+
+/* Carrousel Textos */
+
+#missao .missaoValoresTexto {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70%;
+  height: 15vw;
+  overflow: hidden;
+  margin: 5vw;
+  position: relative;
+}
+
+#missao .missaoValoresTexto p {
+  width: 100%;
+  height: 100%;
+  margin-top: 7vw;
+  position: absolute;
+  opacity: 0;
+  transition: opacity 1s ease-in-out; 
+}
+
+#missao .missaoValoresTexto p.active {
+  opacity: 1;
+}
+
+/* Carrousel Textos */
+
 .logoImgFooter img{
   width: 10vw;
   height: 6vw;
@@ -142,3 +198,91 @@ nav a {
 .logoImgFooter:hover {
   scale: 1.1;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* footer{
+  background-color: #111;
+}
+
+.footerContainer{
+  width: 100%;
+  padding: 70px 30px 20px;
+}
+
+.socialIcons{
+  display: flex;
+  justify-content: center;
+}
+
+.socialIcons a{
+  text-decoration: none;
+  padding: 10px;
+  background-color: white;
+  margin: 10px;
+  border-radius: 50%;
+}
+.socialIcons a i{
+  font-size: 2em;
+  color: black;
+  opacity: 0,9;
+}
+
+.socialIcons a:hover{
+  background-color: #111;
+  transition: 0.5s;
+}
+.socialIcons a:hover i{
+  color: white;
+  transition: 0.5s;
+}
+
+.footerNav{
+  margin: 30px 0;
+}
+
+.footerNav ul{
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+}
+
+.footerNav ul li a{
+  color:white;
+  margin: 20px;
+  text-decoration: none;
+  font-size: 1.3em;
+  opacity: 0.7;
+  transition: 0.5s;
+}
+
+.footerNav ul li a:hover{
+  opacity: 1;
+}
+
+.footerBottom{
+  background-color: #000;
+  padding: 20px;
+  text-align: center;
+}
+
+.footerBottom p{
+  color: white;
+}
+
+.designer{
+  opacity: 0.7;
+  letter-spacing: 1px;
+  font-weight: 400;
+  margin: 0px 5px;
+} */
