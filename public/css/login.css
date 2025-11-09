@@ -1,1 +1,139 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.containerLogin {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    overflow: hidden;
+}
+
+.imgCaixa {
+    width: 50%;
+    height: 100%;
+    background-color: #ffc68e;
+    padding: 5vw;
+}
+
+.imgCaixa img {
+    width: 100%;
+    height: 100%;
+}
+
+.conteudoCaixa {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+}
+
+.conteudoCaixa .formulario {
+    width: 50%;
+    margin-top: 1.5vw;
+}
+
+.conteudoCaixa .formulario h2 {
+    color: #32324f;
+    font-size: 1.5vw;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 2vw;
+    text-align: center;
+}
+
+.conteudoCaixa .formulario .inputCaixa{
+    margin-bottom: 2.5vw;
+}
+
+.conteudoCaixa .formulario .inputCaixa input{
+    width: 100%;
+    padding: 2vh;
+    font-weight: 400;
+    border: none;
+    font-size: 1.3vh;
+    color: #32324f;
+    background-color: #ecf2f7;
+    border-radius: 5px;
+}
+
+.conteudoCaixa .formulario .inputCaixa span{
+    display: inline-block;
+    font-size: 1.9vh;
+    margin-bottom: 0.5vw;
+    color: #32324f;
+    font-weight: 400;
+}
+
+.conteudoCaixa .formulario .inputCaixa input::placeholder{
+    color: #a9adb6;
+}
+
+.conteudoCaixa .formulario .inputCaixa input[type=submit]{
+    background: #4aa4ee;
+    color: #fff;
+    border: none;
+    outline: none;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 1.9vh;
+    transition: 0.3s;
+}
+
+.conteudoCaixa .formulario .inputCaixa input[type=submit]:hover{
+    background: #3286ca;
+}
+
+.conteudoCaixa .formulario .esqueceuSenha {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.7vw;
+    color: #32324f;
+    font-weight: 400;
+    font-size: 1.9vh;
+    cursor: pointer;
+}
+
+.conteudoCaixa .formulario .esqueceuSenha a{
+    text-decoration: none;
+    color: #4aa4ee;
+}
+
+.conteudoCaixa .formulario .esqueceuSenha a:hover{
+    color: #3286ca;
+}
+
+.conteudoCaixa .formulario .inputCaixa p {
+    color: #32324f;
+}
+
+.conteudoCaixa .formulario .inputCaixa p a{
+    color: #4aa4ee;
+}
+
+.conteudoCaixa .formulario .inputCaixa p a:hover{
+    color: #3286ca;
+}
+
+.conteudoCaixa .formulario .setaVoltar {
+    width: 50%;
+    height: 100%;
+}
+
+.conteudoCaixa .formulario .setaVoltar a{
+    display: flex;
+    justify-content: flex-start;
+    gap: 1vw;
+    align-items: center;
+    text-align: center;
+    flex-direction: row;
+    text-decoration: none;
+    color: #3286ca;
+    font-size: 2vw;
+}
+
+.conteudoCaixa .formulario .setaVoltar a h5{
+    font-size: 0.9vw;
+    display: flex;
+    text-align: center;
+}
