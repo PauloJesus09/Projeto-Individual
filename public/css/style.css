@@ -107,7 +107,7 @@ header nav .login:hover {
 
 #sobre .sobreMimConteudo {
   width: 50%;
-  line-height: 1.5vw; /* espaçamento das linhas */
+  line-height: 1.5vw;
 }
 
 #sobre .sobreMimConteudo p {
@@ -238,7 +238,7 @@ header nav .login:hover {
   overflow: hidden;
   border-radius: 10px;
   margin: 5vw;
-  position: relative; /* importante pro absolute funcionar */
+  position: relative; /* faz o position absolute funcionar */
 }
 
 #missao .carrousel img {
@@ -250,7 +250,7 @@ header nav .login:hover {
 }
 
 #missao .carrousel img.active {
-  opacity: 1; /* só a imagem ativa aparece */
+  opacity: 1; /* a img com a classe .active aparece e a antiga desaparece */
 }
 
 /* Carrousel Imagens */
@@ -360,7 +360,7 @@ footer{
   color: white;
 }
 
-.designer{
+.nomeEstilizado{
   opacity: 0.7;
   font-weight: 400;
   margin: 0px 5px;
