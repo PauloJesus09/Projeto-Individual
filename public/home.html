@@ -22,6 +22,7 @@
         <li><a href="#">Início</a></li>
         <li><a href="#sobre">Sobre Mim</a></li>
         <li><a href="#conheca">Conheça Mais</a></li>
+        <li><a href="#obras">Obras Famosas</a></li>
         <li><a href="#missao">Missão</a></li>
         <li class="login"><a href="login.html"> Login </a></li>
       </nav>
@@ -91,6 +92,34 @@
 
     <hr>
 
+    <section id="obras">
+
+      <div class="obrasMaisFamosas">
+        <img id="obrasMaisFamosas1" src="./assets/imgs/conhecaMais1.jpg" class="active">
+        <img id="obrasMaisFamosas2" src="./assets/imgs/conhecaMais3.jpg">
+        <img id="obrasMaisFamosas3" src="./assets/imgs/conhecaMais2.jpg">
+      </div>
+
+      <div class="obraMaisFamosasTexto">
+        <h2>Conheça Mais Sobre</h2>
+        
+        <h3 class="subtituloObras">O Poeta Cronista: A Essência na MPB</h3>
+
+        <p>Nascido Francisco Buarque de Hollanda, sua ascensão na década de 60 revolucionou a Música Popular Brasileira. Desde cedo, Chico demonstrou uma maestria rara com as palavras, elevando a canção popular ao patamar de alta literatura. Suas letras são verdadeiras crônicas do cotidiano, abordando com igual sensibilidade a beleza dos romances e as dificuldades das ruas, sempre com uma métrica impecável e rimas surpreendentes.</p>
+          
+        <h3 class="subtituloObras">O Resistente: Ditadura e a Luta Pela Liberdade</h3>
+
+        <p>A arte de Chico Buarque é inseparável da história política do Brasil. Durante os anos de chumbo da ditadura militar, suas canções se tornaram símbolos de resistência. Através de metáforas sutis e de pseudônimos (como Julinho da Adelaide), ele driblava a censura, transformando palcos em tribunas de protesto. Sua coragem em denunciar a opressão e lutar pela liberdade de expressão cimentou seu legado como um defensor incansável da democracia.</p>
+
+        <h3 class="subtituloObras">O Mestre da Perspectiva: Voz aos Marginalizados</h3>
+
+        <p>Talvez um de seus traços mais notáveis seja a capacidade de se colocar no lugar do 'outro'. Chico Buarque deu voz aos marginalizados e, de forma ímpar, vestiu a pele de personagens femininas em canções marcantes. Essa empatia poética expõe as profundas desigualdades e injustiças sociais do Brasil, mantendo sua obra viva e relevante para as discussões contemporâneas sobre classe, gênero e exclusão.</p>
+      </div>
+
+    </section>
+
+    <hr>
+
     <!-- Missão e Valores -->
     <section id="missao">
       <div class="carrousel">
@@ -156,6 +185,10 @@
   var imgConhecaMais2 = document.getElementById('conhecaImg2');
   var imgConhecaMais3 = document.getElementById('conhecaImg3');
 
+  var obrasMaisFamosas1 = document.getElementById('obrasMaisFamosas1');
+  var obrasMaisFamosas2 = document.getElementById('obrasMaisFamosas2');
+  var obrasMaisFamosas3 = document.getElementById('obrasMaisFamosas3');  
+
   var img1 = document.getElementById('img1'); 
   var img2 = document.getElementById('img2'); 
   var img3 = document.getElementById('img3'); 
@@ -165,12 +198,25 @@
   var texto3 = document.getElementById('txt3'); 
 
   var imagemConhecaMais = [imgConhecaMais1, imgConhecaMais2, imgConhecaMais3];
+  var obrasFamosas = [obrasMaisFamosas1, obrasMaisFamosas2, obrasMaisFamosas3];
   var imagem = [img1, img2, img3];
-  var texto = [txt1, txt2, txt3];
+  var textoMissaoValores = [txt1, txt2, txt3];
 
   var imgConhecaAtual = 0;
+  var obrasFamosasAtual = 0;
   var imgAtual = 0;
   var txtAtual = 0;
+
+  setInterval (() => {
+    obrasFamosas[obrasFamosasAtual].classList.remove('active');
+    obrasFamosasAtual++;
+
+    if (obrasFamosasAtual >= obrasFamosas.length) {
+      obrasFamosasAtual = 0;
+    }
+
+    obrasFamosas[obrasFamosasAtual].classList.add('active');
+  }, 5000);
 
   setInterval(() => {
     imagemConhecaMais[imgConhecaAtual].classList.remove('active');
@@ -184,14 +230,14 @@
   }, 5000);
 
   setInterval(() => {
-    texto[txtAtual].classList.remove('active');
+    textoMissaoValores[txtAtual].classList.remove('active');
     txtAtual++;
     
-    if (txtAtual >= texto.length) {
+    if (txtAtual >= textoMissaoValores.length) {
       txtAtual = 0;
     }
     
-    texto[txtAtual].classList.add('active');
+    textoMissaoValores[txtAtual].classList.add('active');
   }, 5000);
 
   setInterval(() => {

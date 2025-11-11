@@ -43,25 +43,25 @@ header nav {
 header nav a {
   color: #D4B483;
   font-weight: 500;
+  transition: color 0.5s ease-in-out;
 }
 
 header nav a:hover {
   /* color: blanchedalmond; */
   color: #BC9B9A;
-  transition: 0.5s ease-in-out;
 }
 
 header nav .login {
   background-color: #4F443E;
   color: #FDF8F0;
   border-radius: 10px;
-  padding: 1vh;
+  padding: 1.3vh;
+  transition: background-color 0.5s ease-in-out;
 }
 
 header nav .login:hover {
   background-color: #FDF8F0;
   color: #BC9B9A;
-  transition: 0.5s ease-in-out;
 }
 
 #chico {
@@ -196,9 +196,87 @@ header nav .login:hover {
 
 /* Carrousel das Imagens para conhecer mais */
 
-#missao {
+#obras {
   display: flex;
   flex-direction: row-reverse;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  background-color: #FDF8F0;
+  padding: 4vw 0;
+}
+
+#obras .obraMaisFamosasTexto h2 {
+  font-size: 2vw; 
+  margin-bottom: 2vw;
+  color: #4F443E; 
+  font-weight: 700;
+}
+
+#obras .obraMaisFamosasTexto .subtituloObras {
+  font-size: 1.3vw;
+  margin-top: 2vw;
+  margin-bottom: 0.5vw;
+  color: #BC9B9A; 
+  font-weight: 600;
+}
+
+#obras .obraMaisFamosasTexto p{
+  text-align: justify;
+}
+
+#obras .obraMaisFamosasTexto p {
+  font-size: 1vw;
+  color: #4F443E; 
+  font-weight: 400;
+  line-height: 1.6vw;
+}
+
+#obras .obrasMaisFamosas img{
+  width: 35vw;
+}
+
+#obras .obraMaisFamosasTexto {
+  width: 50%;
+  line-height: 1.5vw; 
+}
+
+#obras .obraMaisFamosasTexto p {
+  font-size: 1vw;
+  color: #413732;
+  font-weight: 500;
+}
+
+/* Carrousel das Obras mais famosas */
+
+#obras .obrasMaisFamosas {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 35vw;
+  height: 35vw;
+  overflow: hidden;
+  border-radius: 10px;
+  position: relative;
+}
+
+#obras .obrasMaisFamosas img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  opacity: 0;
+  transition: opacity 1s ease-in-out; 
+}
+
+#obras .obrasMaisFamosas img.active {
+  opacity: 1;   
+}
+
+/* Carrousel das Obras mais famosas */
+
+#missao {
+  display: flex;
+  flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
   background-color: #FDF8F0;
@@ -336,7 +414,6 @@ footer{
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  list-style-type: none;
 }
 
 .footerNavbar ul li a{
@@ -344,10 +421,12 @@ footer{
   margin: 2vh;
   text-decoration: none;
   font-size: 1.1vw; 
+  color: #4F443E;
+  transition: 0.2s ease-in-out;
 }
 
 .footerNavbar ul li a:hover{
-  opacity: 1;
+  color: #BC9B9A;
 }
 
 .footerBaixo{
