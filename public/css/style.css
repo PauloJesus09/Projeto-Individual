@@ -274,6 +274,31 @@ header nav .login:hover {
 
 /* Carrousel das Obras mais famosas */
 
+/* Carrousel textos das obras mais famosas */
+
+#obras .obraMaisFamosasTexto {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 70%;
+  margin: 5vw;
+}
+
+#obras .obraMaisFamosasTexto p {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  width: 100%;
+}
+
+#obras .obraMaisFamosasTexto p.active {
+  opacity: 1;
+  position: relative;
+}
+
+/* Carrousel textos das obras mais famosas */
+
 #missao {
   display: flex;
   flex-direction: row;
