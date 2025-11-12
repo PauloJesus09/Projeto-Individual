@@ -155,7 +155,7 @@
 }
 
 .loadingGif img{
-    display: flex; 
+    display: none; 
     justify-content: center; 
     align-items: center; 
     margin-left: 5.5vw;

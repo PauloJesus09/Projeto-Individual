@@ -48,9 +48,10 @@
 
           <div class="inputCaixa">
             <button onclick="cadastrar()">Cadastrar-se</button>
-            <div id="div_aguardar" class="loadingGif" display="none">
-              <img src="./assets/imgs/loading.gif">
+            <div id="div_aguardar" class="loadingGif">
+              <img src="assets/imgs/loading.gif">
             </div>
+            <!-- <input type="submit" value="Entrar"> -->
           </div>
           
 
@@ -93,19 +94,6 @@
       setInterval(sumirMensagem, 5000);
     }
 
-    // Verificando se o código de ativação é de alguma empresa cadastrada
-    // for (let i = 0; i < listaEmpresasCadastradas.length; i++) {
-    //   if (listaEmpresasCadastradas[i].codigo_ativacao == codigoVar) {
-    //     idEmpresaVincular = listaEmpresasCadastradas[i].id;
-    //     console.log("Código de ativação válido.");
-    //     break;
-    //   } else {
-    //     cardErro.style.display = "block";
-    //     mensagem_erro.innerHTML = "(Mensagem de erro para código inválido)";
-    //     finalizarAguardar();
-    //   }
-    // }
-
     // Enviando o valor da nova input
     fetch("/usuarios/cadastrar", {
       method: "POST",
@@ -127,12 +115,7 @@
           cardErro.style.display = "block";
 
           mensagem_erro.innerHTML =
-            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-
-          setTimeout(() => {
-            window.location.href = "./login.html";
-          }, 2000);
-
+            "Cadastro realizado com sucesso! Redirecionando para tela de Login..."
           limparFormulario();
           finalizarAguardar();
         } else {

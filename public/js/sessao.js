@@ -20,7 +20,11 @@ function limparSessao() {
 // carregamento (loading)
 function aguardar() {
     var divAguardar = document.getElementById("div_aguardar");
-    divAguardar.style.display = "none";
+    divAguardar.style.display = "flex";
+
+    setTimeout(() => {
+        window.location.href = "login.html";
+    }, 2000);
 }
 
 function finalizarAguardar(texto) {

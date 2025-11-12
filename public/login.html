@@ -45,7 +45,7 @@
                     <div class="inputCaixa">
                         <button onclick="entrar()">Entrar</button>
                         <div id="div_aguardar" class="loadingGif">
-                            <img src="./assets/imgs/loading.gif">
+                            <img src="assets/imgs/loading.gif">
                         </div>
                         <!-- <input type="submit" value="Entrar"> -->
                     </div>
@@ -76,8 +76,8 @@
     function entrar() {
         aguardar();
 
-        var emailVar = email_input.value;
-        var senhaVar = senha_input.value;
+        var emailVar = ipt_email.value;
+        var senhaVar = ipt_senha.value;
 
         if (emailVar == "" || senhaVar == "") {
             cardErro.style.display = "block"
@@ -112,11 +112,10 @@
                     console.log(JSON.stringify(json));
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.id;
-                    sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
+                    sessionStorage.ID_USUARIO = json.idUsuario;
 
                     setTimeout(function () {
-                        window.location = "./dashboard/cards.html";
+                        window.location = "index.html";
                     }, 1000); // apenas para exibir o loading
                 });
 
