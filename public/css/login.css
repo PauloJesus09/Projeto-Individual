@@ -74,8 +74,6 @@
     border: 1px solid #A8B3C3;
 }
 
-
-
 .conteudoCaixa .formulario .inputCaixa button{
     background-color: #BC9B9A;
     color: #fff;
@@ -154,4 +152,12 @@
     font-size: 0.9vw;
     display: flex;
     text-align: center;
+}
+
+.loadingGif img{
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    margin-left: 5.5vw;
+    width: 13vw;
 }
