@@ -23,7 +23,7 @@ function aguardar() {
     divAguardar.style.display = "flex";
 
     setTimeout(() => {
-        window.location.href = "login.html";
+        window.location = "login.html";
     }, 2000);
 }
 

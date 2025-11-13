@@ -30,28 +30,30 @@
             <span>Nome</span>
             <input type="text" id="ipt_nome" placeholder="Chico Buarque" />
           </div>
+          <div id="div_msg"></div>
 
           <div class="inputCaixa">
             <span>Email</span>
             <input type="text" id="ipt_email" placeholder="seuemail@email.com" />
           </div>
+          <div id="div_msg"></div>
 
           <div class="inputCaixa">
             <span>Senha</span>
-            <input type="text" id="ipt_senha" placeholder="Senha" />
+            <input type="password" id="ipt_senha" placeholder="Senha"/>
           </div>
+          <div id="div_msg"></div>
 
           <div class="esqueceuSenha">
-            <label> <input type="checkbox" /> Mostrar senha </label>
+            <label> <input type="checkbox" onclick="mostrarSenha()"/> Mostrar senha </label>
             <a href="#"> Esqueceu a Senha?</a>
           </div>
 
           <div class="inputCaixa">
-            <button onclick="cadastrar()">Cadastrar-se</button>
+            <button type="button" onclick="cadastrar()">Cadastrar-se</button>
             <div id="div_aguardar" class="loadingGif">
               <img src="assets/imgs/loading.gif">
             </div>
-            <!-- <input type="submit" value="Entrar"> -->
           </div>
           
 
@@ -68,10 +70,10 @@
   </div>
 
   <script src="./js/sessao.js"></script>
+  <script src="./js/validacoes.js"></script>
 </body>
 </html>
 <script>
-  // Array para armazenar empresas cadastradas para validação de código de ativação
 
   function cadastrar() {
     aguardar();
@@ -82,11 +84,34 @@
     var emailVar = ipt_email.value;
     var senhaVar = ipt_senha.value;
 
+
+    var mensagem = "";
+    if (nomeVar == '' || emailVar == '' || senhaVar == '') {
+      ipt_nome.style.border = "1px solid red";
+      ipt_email.style.border = "1px solid red";
+      ipt_senha.style.border = "1px solid red";
+      mensagem += `Preencha todos os campos!`;
+    }
+
+    if (emailVar.endsWith('@gmail.com') || emailVar.endsWith('@hotmail.com') || emailVar.endsWith('@@outlook.com') || emailVar.endsWith('@yahoo.com') || emailVar.endsWith('@sptech.school')) {
+        // o email precisa terminar com umas dessas validaçôes.
+        ipt_email.style.border = "1px solid green";
+      } else {
+        ipt_email.style.border = "1px solid red";
+        mensagem += `Insira um email válido!`
+      }
+
+      if (senhaVar < 6) {
+        ipt_senha.style.border = "1px solid red";
+        mensagem += `Senha precisa conter no mínimo 6 caracteres!`
+      }
+
+      div_msg.innerHTML = mensagem;
+
     // Verificando se há algum campo em branco
     if (nomeVar == "" || emailVar == "" || senhaVar == "") {
       cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "(Mensagem de erro para todos os campos em branco)";
+      div_msg.innerHTML = "(Mensagem de erro para todos os campos em branco)";
 
       finalizarAguardar();
       return false;
