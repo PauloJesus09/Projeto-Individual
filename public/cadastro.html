@@ -30,18 +30,20 @@
             <span>Nome</span>
             <input type="text" id="ipt_nome" placeholder="Chico Buarque" />
           </div>
-          <div id="div_msg"></div>
+          <div id="msgNome"></div>
 
           <div class="inputCaixa">
             <span>Email</span>
             <input type="text" id="ipt_email" placeholder="seuemail@email.com" />
           </div>
-          <div id="div_msg"></div>
+          <div id="msgEmail"></div>
 
           <div class="inputCaixa">
             <span>Senha</span>
             <input type="password" id="ipt_senha" placeholder="Senha"/>
           </div>
+          <div id="msgSenha"></div>
+
           <div id="div_msg"></div>
 
           <div class="esqueceuSenha">
@@ -84,40 +86,15 @@
     var emailVar = ipt_email.value;
     var senhaVar = ipt_senha.value;
 
-
-    var mensagem = "";
-    if (nomeVar == '' || emailVar == '' || senhaVar == '') {
-      ipt_nome.style.border = "1px solid red";
-      ipt_email.style.border = "1px solid red";
-      ipt_senha.style.border = "1px solid red";
-      mensagem += `Preencha todos os campos!`;
-    }
-
-    if (emailVar.endsWith('@gmail.com') || emailVar.endsWith('@hotmail.com') || emailVar.endsWith('@@outlook.com') || emailVar.endsWith('@yahoo.com') || emailVar.endsWith('@sptech.school')) {
-        // o email precisa terminar com umas dessas validaçôes.
-        ipt_email.style.border = "1px solid green";
-      } else {
-        ipt_email.style.border = "1px solid red";
-        mensagem += `Insira um email válido!`
-      }
-
-      if (senhaVar < 6) {
-        ipt_senha.style.border = "1px solid red";
-        mensagem += `Senha precisa conter no mínimo 6 caracteres!`
-      }
-
-      div_msg.innerHTML = mensagem;
-
     // Verificando se há algum campo em branco
-    if (nomeVar == "" || emailVar == "" || senhaVar == "") {
-      cardErro.style.display = "block";
-      div_msg.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+    // if (nomeVar == "" || emailVar == "" || senhaVar == "") {
+    //   div_msg.innerHTML = "(Mensagem de erro para todos os campos em branco)";
 
-      finalizarAguardar();
-      return false;
-    } else {
-      setInterval(sumirMensagem, 5000);
-    }
+    //   finalizarAguardar();
+    //   return false;
+    // } else {
+    //   setInterval(sumirMensagem, 5000);
+    // }
 
     // Enviando o valor da nova input
     fetch("/usuarios/cadastrar", {
@@ -133,31 +110,26 @@
         senhaServer: senhaVar,
       }),
     })
-      .then(function (resposta) {
-        console.log("resposta: ", resposta);
+         .then(function (resposta) {
+           console.log("resposta: ", resposta);
 
-        if (resposta.ok) {
-          cardErro.style.display = "block";
+           if (resposta.ok) {
+            //  cardErro.style.display = "block";
 
-          mensagem_erro.innerHTML =
-            "Cadastro realizado com sucesso! Redirecionando para tela de Login..."
-          limparFormulario();
-          finalizarAguardar();
-        } else {
-          throw "Houve um erro ao tentar realizar o cadastro!";
-        }
-      })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-        finalizarAguardar();
-      });
+            mensagem_erro.innerHTML =
+              "Cadastro realizado com sucesso! Redirecionando para tela de Login..."
+            limparFormulario();
+            finalizarAguardar();
+           } else {
+              throw "Houve um erro ao tentar realizar o cadastro!";
+           }
+         })
+         .catch(function (resposta) {
+           console.log(`#ERRO: ${resposta}`);
+           finalizarAguardar();
+         });
 
-    return false;
+       return false;
   }
-
-  // Listando empresas cadastradas
-
-  function sumirMensagem() {
-    cardErro.style.display = "none";
-  }
+  
 </script>
