@@ -28,27 +28,24 @@
         <form>
           <div class="inputCaixa">
             <span>Nome</span>
-            <input type="text" id="ipt_nome" placeholder="Chico Buarque" />
+            <input type="text" id="ipt_nome" placeholder="Chico Buarque" oninput="limparErro('nome')"/>
+            <div id="msgNome"></div>
           </div>
-          <div id="msgNome"></div>
 
           <div class="inputCaixa">
             <span>Email</span>
-            <input type="text" id="ipt_email" placeholder="seuemail@email.com" />
+            <input type="text" id="ipt_email" placeholder="seuemail@email.com" oninput="limparErro('email')"/>
+            <div id="msgEmail"></div>
           </div>
-          <div id="msgEmail"></div>
-
+          
           <div class="inputCaixa">
             <span>Senha</span>
-            <input type="password" id="ipt_senha" placeholder="Senha"/>
+            <input type="password" id="ipt_senha" placeholder="Senha" oninput="limparErro('senha')"/>
+            <div id="msgSenha"></div>
           </div>
-          <div id="msgSenha"></div>
-
-          <div id="div_msg"></div>
 
           <div class="esqueceuSenha">
             <label> <input type="checkbox" onclick="mostrarSenha()"/> Mostrar senha </label>
-            <a href="#"> Esqueceu a Senha?</a>
           </div>
 
           <div class="inputCaixa">
@@ -57,8 +54,8 @@
               <img src="assets/imgs/loading.gif">
             </div>
           </div>
-          
 
+          <div id="div_msg"></div>
         </form>
 
         <div class="setaVoltar">
@@ -77,8 +74,8 @@
 </html>
 <script>
 
+  var listaObrigatoria = ['!', '@', '#', '$', '%', '*'];
   function cadastrar() {
-    aguardar();
 
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
@@ -86,16 +83,66 @@
     var emailVar = ipt_email.value;
     var senhaVar = ipt_senha.value;
 
-    // Verificando se há algum campo em branco
-    // if (nomeVar == "" || emailVar == "" || senhaVar == "") {
-    //   div_msg.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+    var erro = false;
+    var contemCaracterEspecial = false;
 
-    //   finalizarAguardar();
-    //   return false;
-    // } else {
-    //   setInterval(sumirMensagem, 5000);
-    // }
+    if (nomeVar == "" ) {
+      ipt_nome.style.border = `1px solid red`;
+      msgNome.innerHTML = `<span style="color: red">Preencha o campo Nome! </span>`; 
+      erro = true;
+    } else {
+      ipt_nome.style.border = `1px solid green`;
+    }
 
+    if (emailVar == "") {
+      ipt_email.style.border = `1px solid red`;
+      msgEmail.innerHTML = `<span style="color: red"> Preencha o campo Email! </span>`;
+      erro = true;
+    } else {
+      if (emailVar.endsWith('@gmail.com') || emailVar.endsWith('@hotmail.com') || emailVar.endsWith('@outlook.com') || emailVar.endsWith('@yahoo.com') || emailVar.endsWith('@sptech.school') || emailVar.endsWith('@email.com') || emailVar.endsWith('@gov.br')) {
+        ipt_email.style.border = `1px solid green`;
+      } else {
+
+        msgEmail.innerHTML = `<strong> <span style="color: red"> Insira um email válido! </span> </strong>`;
+        ipt_email.style.border = `1px solid red`;
+        erro = true;
+      }
+    }
+
+    for (var i = 0; i < listaObrigatoria.length; i++) {
+
+      if (senhaVar.includes(listaObrigatoria[i])) {
+        contemCaracterEspecial = true;
+      }
+    }
+
+    if (senhaVar == "") {
+
+      ipt_senha.style.border = `1px solid red`;
+      msgSenha.innerHTML = `<span style="color: red"> Preencha o campo Senha! </span>`;
+      erro = true;
+    } else if (senhaVar.length < 6) {
+
+      ipt_senha.style.border = `1px solid red`;
+      msgSenha.innerHTML = `<strong> <span style="color: red"> Senha precisa conter no mínimo 6 caracteres! </span> </strong>`;
+      erro = true;
+    } else if (!contemCaracterEspecial) {
+
+      ipt_senha.style.border = `1px solid red`;
+      msgSenha.innerHTML = `<strong> <span style="color: red"> Senha inválida! Falta algum caracterer especial (! @ # $ % *) </span> </strong>`;
+      erro = true;
+    } else {
+
+      ipt_senha.style.border = `1px solid green`;
+    }
+  
+    if (erro) {
+      finalizarAguardar();
+      return;
+    }
+
+    aguardar();
+    
     // Enviando o valor da nova input
     fetch("/usuarios/cadastrar", {
       method: "POST",
@@ -114,10 +161,14 @@
            console.log("resposta: ", resposta);
 
            if (resposta.ok) {
-            //  cardErro.style.display = "block";
+            div_msg.innerHTML = '<span style="color: green">Cadastro realizado com sucesso! Redirecionando para login...</span>';
 
-            mensagem_erro.innerHTML =
-              "Cadastro realizado com sucesso! Redirecionando para tela de Login..."
+            finalizarAguardar();
+
+            setTimeout (() => {
+              window.location = "login.html";
+            }, 2000);
+
             limparFormulario();
             finalizarAguardar();
            } else {
@@ -125,11 +176,10 @@
            }
          })
          .catch(function (resposta) {
-           console.log(`#ERRO: ${resposta}`);
+           console.log(`#ERRO DE REDE: ${resposta}`);
            finalizarAguardar();
          });
-
-       return false;
+         return false;
   }
   
 </script>
