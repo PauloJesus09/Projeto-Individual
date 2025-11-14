@@ -17,7 +17,7 @@ function limparSessao() {
     window.location = "login.html";
 }
 
-function limparErro(campoInput) {
+function limparMsgErro(campoInput) {
     if (campoInput == 'nome') {
         msgNome.innerHTML = "";
         ipt_nome.style.border = `1px solid #ccc`;
