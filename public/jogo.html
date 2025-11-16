@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Acerte a Música</title>
+    <link rel="stylesheet" href="musica.css">
+    <style>
+
+    </style>
+</head>
+<body>
+
+    <div class="cardJogo">
+        <div class="botaoJogo">
+            <button id="iniciarJogo" onclick="comecarJogar()">Começar Jogo</button>
+        </div>
+    </div>
+
+    <div id="comecarJogo" style="display: none;">
+
+        <div class="status">
+            <p>Acertos: <span id="acertos">0</span></p>
+            <p>Erros: <span id="erros">0</span></p>
+            <p>Pontos: <span id="pontos">0</span></p>
+            <p>Taxa de acerto: <span id="taxaAcerto">0%</span></p>
+        </div>
+
+        <div id="jogo">
+            <h2 id="titulo">Acerte a Música</h2>
+            <p id="pergunta"></p>
+
+            <button id="playBtn" onclick="tocarTrecho()">▶ Tocar trecho</button>
+
+            <div id="opcao"></div>
+
+            <button id="proximaBtn" onclick="proxima()">Próxima</button>
+        </div>
+    </div>
+    <script src="quiz.js"></script>
+</body>
+</html>
