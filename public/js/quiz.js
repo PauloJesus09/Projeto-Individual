@@ -277,13 +277,5 @@ function proxima() {
     }
 }
 
-function finalizar() {
-    localStorage.setItem("pontuacaoFinal", pontos);
-
-    setInterval(() => {
-        window.location = "dashboard.html";
-    }, 3000);
-}
-
 // sempre carrega as próximas perguntas
 carregarPergunta();
