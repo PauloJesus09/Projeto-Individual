@@ -1,0 +1,273 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    overflow: hidden;
+}
+
+li.sairPagina {
+    margin-right: 93vw;
+    margin-top: 0vw;
+    list-style: none;
+}
+
+li.sairPagina a {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 0.5vw 1.2vw;
+    border: 1px solid #4F443E;
+    border-radius: 20px;
+    color: #4F443E;
+    background-color: transparent;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-decoration: none; 
+}
+
+li.sairPagina a:hover {
+    background-color: #4F443E; 
+    color: #FDF8F0;
+    text-decoration: none;
+    transform: scale(1.05);
+}
+
+.mainJogo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 1vw;
+    min-height: 100vh;
+    background-color: #ffc68e;
+}
+
+/* .cardJogo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 60vw;
+    height: 35vw;
+    padding: 3vw;
+    background: antiquewhite;
+    margin: 3vw auto;
+    margin-bottom: 7vw;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    color: #4F443E;
+} */
+
+.cardJogo button {
+    margin-top: 17vw;
+}
+
+#comecarJogo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 60vw;
+    height: 35vw;
+    padding: 3vw;
+    background: antiquewhite;
+    margin: 3vw auto;
+    margin-bottom: 7vw;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    color: #4F443E;
+}
+
+#cardInicio h2 {
+    font-size: 3vw;
+    margin-bottom: 1vw;
+    color: #4F443E;
+}
+
+#cardInicio .descricaoJogo {
+    font-size: 1.2vw;
+    text-align: center;
+    margin-bottom: 2vw;
+    line-height: 1.4;
+    color: #463c37;
+}
+
+#cardInicio .regras {
+    background-color: #FDF8F0;
+    padding: 2.5vw 4.5vw;
+    border-radius: 10px;
+    margin-bottom: 2.5vw;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+#cardInicio .regras h3 {
+    font-size: 1.5vw;
+    color: #4F443E;
+    margin-bottom: 1vw;
+    border-bottom: 1px solid #e3b062;
+    padding-bottom: 0.5vw;
+}
+
+#cardInicio .regras p {
+    font-size: 1vw;
+    text-align: left;
+    margin: 0.7vw;
+    font-weight: 600;
+    color: #4F443E;
+}
+
+#cardIncicio .regras p i {
+    color: #e3b062;
+}
+
+i { margin-right: 0.6vw; }
+
+.botaoJogo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1vw auto;
+    width: 100%;
+    margin-bottom: 1vw;
+}
+
+.tocarMusica {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1vw auto;
+    width: 100%;
+}
+
+.proximaMusica {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1vw auto;
+    width: 100%;
+}
+
+.botaoJogo button,
+.tocarMusica button,
+.proximaMusica button,
+.reiniciarJogo button {
+    width: 40%;
+    padding: 1vw 1vw;
+    border: 1px solid #4F443E;
+    border-radius: 25px;
+    background: transparent;
+    color: #4F443E;
+    font-weight: 600;
+    font-size: 1.2vw;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.botaoJogo button:hover, .tocarMusica button:hover, .proximaMusica button:hover, .reiniciarJogo button:hover {
+    background: #4F443E; 
+    color: #FDF8F0; 
+}
+
+#comecarJogo #jogo .proximaMusica button:disabled {
+    cursor: not-allowed; /* fica bloqueado quando passa o cursor em cima */
+}
+
+.mainJogo #comecarJogo .status {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2vw;
+    width: 40vw;
+    font-size: 1.1vw;
+    font-weight: 500;
+    color: #4F443E;
+}
+
+#jogo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#jogo h2 {
+    font-size: 2.2vw;
+    margin-bottom: 1.5vw;
+}
+
+#jogo p {
+    font-size: 1.2vw;
+    margin-bottom: 2vw;
+}
+
+.botaoAlternativas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    margin-top: 1.5vw;
+}
+
+.botaoAlternativas button{
+    width: 18.5vw;
+    padding: 1.2vw;
+    margin: 0.6vw;
+    border: 1px solid #4F443E;
+    border-radius: 5px;
+    background: #FDF8F0;
+    color: #4F443E;
+    font-weight: 600;
+    font-size: 1vw;
+    cursor: pointer;
+    transition: background 0.3s,transform 0.3s;
+}
+
+.botaoAlternativas button:hover {
+    background: #e3b062; 
+    transform: scale(1.02);
+}
+
+.botaoAlternativas button.correto {
+    background: #27ae60; 
+    color: white;
+    cursor: default;
+}
+
+.botaoAlternativas button.errado {
+    background: #e74c3c;
+    color: white;
+    cursor: default;
+}
+
+#telaFinal #jogoFinal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+#telaFinal #jogoFinal h2 {
+    font-size: 2.5vw;
+    margin-bottom: 2vw;
+}
+
+#telaFinal #jogoFinal p {
+    font-size: 1.1vw;
+    margin: 0.5vw 0;
+}
+
+#telaFinal #jogoFinal strong {
+    color: #4F443E;
+    font-size: 1.1vw;
+}
+
+.reiniciarJogo {
+    display: flex;
+    gap: 1vw;
+    margin-top: 2vw;
+    width: 100%;
+    justify-content: center;
+}
+
+.reiniciarJogo button {
+    width: 45%;
+}
