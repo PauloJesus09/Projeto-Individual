@@ -217,7 +217,8 @@ i { margin-right: 0.6vw; }
     font-weight: 600;
     font-size: 1vw;
     cursor: pointer;
-    transition: background 0.3s,transform 0.3s;
+    transition: background 0.3s;
+    transition: transform 0.4s;
 }
 
 .botaoAlternativas button:hover {
