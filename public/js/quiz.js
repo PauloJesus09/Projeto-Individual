@@ -126,8 +126,12 @@ var respondeu = false;
 
 // quando clicado, o botao redireciona para o jogo e some
 function comecarJogar () {
-    document.getElementById("comecarJogo").style.display = "flex";
-    document.getElementById("cardInicio").style.display = "none";
+
+    var comecarJogo = document.getElementById("comecarJogo");
+    var cardInicio = document.getElementById("cardInicio");
+
+    comecarJogo.style.display = "flex";
+    cardInicio.style.display = "none";
     carregarPergunta();
 }
 
@@ -140,9 +144,13 @@ function reiniciarJogo() {
     tentativa = 1;
     respondeu = false;
 
-    document.getElementById("telaFinal").style.display = "none";
-    document.getElementById("cardInicio").style.display = "flex";
-    document.getElementById("comecarJogo").style.display = "none";
+    var telaFinal = document.getElementById('telaFinal');
+    var cardInicio = document.getElementById('cardInicio');
+    var comecarJogo = document.getElementById('comecarJogo');
+
+    telaFinal.style.display = "none";
+    cardInicio.style.display = "flex";
+    comecarJogo.style.display = "none";
 
     atualizarStatus();
 }
@@ -166,9 +174,11 @@ function carregarPergunta() {
     respondeu = false;
 
     // sempre fica bloqueado ate a pergunta terminar
-    document.getElementById("proximaBtn").disabled = true;
+    var proximaPag = document.getElementById("proximaPag");
+    proximaPag.disabled = true;
 
-    document.getElementById("pergunta").innerHTML = questaoAtual.pergunta;
+    var pergunta = document.getElementById("pergunta");
+    pergunta.innerHTML = `${questaoAtual.pergunta}`;
     var divAlternativas = document.getElementById("alternativas");
     
     divAlternativas.innerHTML = `
@@ -180,7 +190,6 @@ function carregarPergunta() {
         </div>
     `;
 
-    habilitarAlternativas();
     atualizarStatus();
 }
 
@@ -208,26 +217,6 @@ function desabilitarAlternativas() {
     document.getElementById('alt2').disabled = true;
     document.getElementById('alt3').disabled = true;
     document.getElementById('alt4').disabled = true;
-}
-
-// habilita as alternativas pelo id
-function habilitarAlternativas() {
-    var alt1 = document.getElementById('alt1');
-    var alt2 = document.getElementById('alt2');
-    var alt3 = document.getElementById('alt3');
-    var alt4 = document.getElementById('alt4');
-
-    alt1.disabled = false;
-    alt1.classList.remove('correto', 'errado');
-
-    alt2.disabled = false;
-    alt2.classList.remove('correto', 'errado');
-
-    alt3.disabled = false;
-    alt3.classList.remove('correto', 'errado');
-
-    alt4.disabled = false;
-    alt4.classList.remove('correto', 'errado');
 }
 
 // destaca a resposta correta acessando o json
@@ -268,9 +257,9 @@ function responder(resposta, idBotao) {
 
     if (resposta == questaoAtual.correta) {
 
+        // adiciona a cor verde a alternativa correta
         botao.classList.add("correto");
-        acertos++;
-
+        
         if (tentativa == 1) {
             pontos = pontos + 5;
         } else if (tentativa == 2) {
@@ -280,10 +269,10 @@ function responder(resposta, idBotao) {
         }
 
         desabilitarAlternativas();
-        document.getElementById("proximaBtn").disabled = false;
-        respondeu = true;
+        document.getElementById("proximaPag").disabled = false;
 
         alert(`Parabéns! Resposta correta: ${questaoAtual.correta}.`);
+        acertos++;
     } else {
 
         if (tentativa < 3) { 
@@ -307,7 +296,7 @@ function responder(resposta, idBotao) {
                 proxima();
             }, 2000);
 
-            document.getElementById("proximaBtn").disabled = true;
+            document.getElementById("proximaPag").disabled = true;
             destacarRespostaCorreta(questaoAtual.correta);
             desabilitarAlternativas();
 
@@ -351,7 +340,7 @@ function finalizar() {
     var mensagemFinal = document.getElementById("mensagemFinal");
     if (taxaCalculadaFormatada > 50) {
         mensagemFinal.innerHTML = `
-        <div id="telaFinal" style="display: none;">
+        <div id="telaFinal">
             <div id="jogoFinal">
                 <h2 id="tituloFinal">Parabéns, você é um expert em Chico Buarque!</h2>
                 <p>Você completou todas as questões!</p>
@@ -365,7 +354,7 @@ function finalizar() {
         </div>`;
     } else {
         mensagemFinal.innerHTML = `
-        <div id="telaFinal" style="display: none;">
+        <div id="telaFinal">
             <div id="jogoFinal">
                 <h2 id="tituloFinal">Fim de Jogo. Tente Novamente!</h2>
                 <p>Você completou todas as questões!</p>
@@ -377,12 +366,12 @@ function finalizar() {
                 </div>
             </div>
         </div>`;
-
-        document.getElementById("comecarJogo").style.display = "none";
-        document.getElementById("telaFinal").style.display = "flex"; 
-
-        document.getElementById("pontuacaoFinal").innerHTML = pontos;
-        document.getElementById("acertosFinal").innerHTML = acertos;
-        document.getElementById("taxaFinal").innerHTML = `${taxaCalculadaFormatada}%`;
     }
+
+    document.getElementById("telaFinal").style.display = "flex"; 
+    document.getElementById("comecarJogo").style.display = "none";
+
+    document.getElementById("pontuacaoFinal").innerHTML = pontos;
+    document.getElementById("acertosFinal").innerHTML = acertos;
+    document.getElementById("taxaFinal").innerHTML = `${taxaCalculadaFormatada}%`;
 }

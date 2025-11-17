@@ -14,21 +14,6 @@
     </style>
 </head>
 <body onload="atualizarStatus()">
-
-    <!-- <header>
-        <div class="logoImg">
-            <img src="./assets/imgs/logoHollanda.png">
-        </div>
-
-        <nav>
-            <li><a href="index.html">Início</a></li>
-            <li><a href="index.html#sobre">Sobre Mim</a></li>
-            <li><a href="index.html#conheca">Conheça Mais</a></li>
-            <li><a href="dashboards.html">Dashboards</a></li>
-            <li><a href="jogo.html">Jogo</a></li>
-            <li><a href="#" onclick="limparSessao()">Sair</a></li>
-        </nav>
-    </header>  -->
     <main class="mainJogo">
         <li class="sairPagina"><a href="#" onclick="limparSessao()"> <i class="fas fa-sign-out-alt"> </i>Sair</a> </li>
         
@@ -40,8 +25,8 @@
 
             <div class="regras">
                 <h3>Regras:</h3>
-                <p><i class="fas fa-headphones"></i>1. Ouça um trecho da canção.</p>
-                <p><i class="fas fa-lightbulb"></i>2. Escolha a música correta entre as 4 opções.</p>
+                <p><i class="fas fa-headphones"></i>1. Ouça um trecho da música.</p>
+                <p><i class="fas fa-lightbulb"></i>2. Escolha a música correta entre as 4 alternativas.</p>
                 <p><i class="fas fa-redo-alt"></i>3. Você tem 3 tentativas por rodada.</p>
                 <p><i class="fa-solid fa-headphones"></i>4. Certifique-se de que o áudio esteja ligado para o desafio!</p>
             </div>
@@ -72,9 +57,23 @@
                 <div id="alternativas"></div>
 
                 <div class="proximaMusica">
-                    <button id="proximaBtn" onclick="proxima()" disabled>Próxima</button>
+                    <button id="proximaPag" onclick="proxima()" disabled>Próxima</button>
                 </div>
             </div>
+        </div>
+        <div id="mensagemFinal">
+            <!-- <div id="telaFinal" style="display: none;">
+                <div id="jogoFinal">
+                    <h2 id="tituloFinal">Fim de Jogo. Tente Novamente!</h2>
+                    <p>Você completou todas as questões!</p>
+                    <p>Pontuação Total: <strong id="pontuacaoFinal">0</strong></p>
+                    <p>Acertos: <strong id="acertosFinal">0</strong></p>
+                    <p>Taxa de Acerto: <strong id="taxaFinal">0%</strong></p>
+                    <div class="proximaMusica">
+                        <button onclick="reiniciarJogo()">Jogar Novamente</button>
+                    </div> 
+                </div>
+            </div> -->
         </div>
     </main>
     
