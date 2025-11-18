@@ -121,9 +121,6 @@ var tentativa = 1; // quantidade de tentativas que o usuário começa (o máx é
 // começam como nulas pq nao foi selecionada nenhuma alternativa
 var audioAtual = null;
 
-// saber se ele selecionou alguma alternativa
-var respondeu = false;
-
 // quando clicado, o botao redireciona para o jogo e some
 function comecarJogar () {
 
@@ -142,8 +139,7 @@ function reiniciarJogo() {
     acertos = 0;
     erros = 0;
     tentativa = 1;
-    respondeu = false;
-
+    
     var telaFinal = document.getElementById('telaFinal');
     var cardInicio = document.getElementById('cardInicio');
     var comecarJogo = document.getElementById('comecarJogo');
@@ -171,8 +167,7 @@ function tocarTrecho() {
 // carrega a pergunta
 function carregarPergunta() {
     var questaoAtual = quiz[perguntaAtual];
-    respondeu = false;
-
+    
     // sempre fica bloqueado ate a pergunta terminar
     var proximaPag = document.getElementById("proximaPag");
     proximaPag.disabled = true;
@@ -208,7 +203,7 @@ function atualizarStatus() {
     document.getElementById("acertos").innerHTML = acertos;
     document.getElementById("erros").innerHTML = erros;
     document.getElementById("pontos").innerHTML = pontos;
-    document.getElementById("tentativaAtual").innerHTML = tentativa;
+    document.getElementById("tentativaAtual").innerHTML = `${tentativa}`;
 }
 
 // desabilita as alternativas pelo id
@@ -290,7 +285,7 @@ function responder(resposta, idBotao) {
         } else {
             
             erros++;
-            tentativa++;
+
             alert(`Que pena! Suas 3 tentativas acabaram. A resposta correta era: ${questaoAtual.correta}. Você será redirecionado para a próxima questão!`);
             setTimeout(() => {
                 proxima();
@@ -299,8 +294,6 @@ function responder(resposta, idBotao) {
             document.getElementById("proximaPag").disabled = true;
             destacarRespostaCorreta(questaoAtual.correta);
             desabilitarAlternativas();
-
-            respondeu = true; // se for respondida, aí avança
         }
     }
     atualizarStatus();
