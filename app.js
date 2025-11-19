@@ -17,6 +17,7 @@ var app = express();
 
 // var indexRouter = require("./src/routes/index");
 var usuarioRouter = require("./src/routes/usuarios");
+var pontosRouter = require("./src/routes/pontos");
 
 
 app.use(express.json());
