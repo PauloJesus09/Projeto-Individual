@@ -208,10 +208,20 @@ function atualizarStatus() {
 
 // desabilita as alternativas pelo id
 function desabilitarAlternativas() {
-    document.getElementById('alt1').disabled = true;
-    document.getElementById('alt2').disabled = true;
-    document.getElementById('alt3').disabled = true;
-    document.getElementById('alt4').disabled = true;
+    var alt1 = document.getElementById('alt1');
+    var alt2 = document.getElementById('alt2');
+    var alt3 = document.getElementById('alt3');
+    var alt4 = document.getElementById('alt4');
+
+    alt1.disabled = true;
+    alt2.disabled = true;
+    alt3.disabled = true;
+    alt4.disabled = true;
+
+    alt1.style.cursor = "not-allowed";
+    alt2.style.cursor = "not-allowed";
+    alt3.style.cursor = "not-allowed";
+    alt4.style.cursor = "not-allowed";
 }
 
 // destaca a resposta correta acessando o json
