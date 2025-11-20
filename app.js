@@ -18,6 +18,8 @@ var app = express();
 // var indexRouter = require("./src/routes/index");
 var usuarioRouter = require("./src/routes/usuarios");
 var pontosRouter = require("./src/routes/pontos");
+var partidasRouter = require("./src/routes/partidas");
+var kpiPontuacaoMediaRouter = require("./src/routes/kpiPontuacaoMedia");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -28,6 +30,8 @@ app.use(cors());
 // app.use("/", indexRouter);
 app.use("/usuarios", usuarioRouter);
 app.use("/pontos", pontosRouter);
+app.use("/partidas", partidasRouter);
+app.use("/kpiPontuacaoMedia", kpiPontuacaoMediaRouter);
 
 app.listen(PORTA_APP, function () {
     console.log(`

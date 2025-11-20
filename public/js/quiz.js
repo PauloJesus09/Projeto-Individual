@@ -392,6 +392,8 @@ function dashboard() {
 function cadastrarPontosJogo() {
     var pontosVar = pontos;
     var acertosVar = acertos;
+    var fkUsuarioVar = sessionStorage.ID_USUARIO;
+    // var fkPartidaVar
 
     fetch("/pontos/cadastrarPontosJogo", {
       method: "POST",
@@ -403,6 +405,7 @@ function cadastrarPontosJogo() {
         // Agora vá para o arquivo routes/usuario.js
         pontosServer: pontosVar,
         acertosServer: acertosVar,
+        fkUsuarioServer: fkUsuarioVar,
       }),
     })
         .then(function (resposta) {
@@ -410,7 +413,7 @@ function cadastrarPontosJogo() {
            if (resposta.ok) {
             console.log(`acertos e pontos cadastrados`);
             dashboard();
-            
+
             } else {
                 throw "Houve um erro ao tentar realizar o cadastro!";
             }
