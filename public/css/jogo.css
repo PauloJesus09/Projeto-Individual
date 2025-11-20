@@ -5,8 +5,8 @@ body {
 }
 
 li.sairPagina {
-    margin-right: 93vw;
-    margin-top: 0vw;
+    margin-right: 90vw;
+    margin-bottom: 1vw;
     list-style: none;
 }
 
@@ -39,26 +39,6 @@ li.sairPagina a:hover {
     padding-top: 1vw;
     min-height: 100vh;
     background-color: #ffc68e;
-}
-
-/* .cardJogo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 60vw;
-    height: 35vw;
-    padding: 3vw;
-    background: antiquewhite;
-    margin: 3vw auto;
-    margin-bottom: 7vw;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    color: #4F443E;
-} */
-
-.cardJogo button {
-    margin-top: 13vw;
 }
 
 #comecarJogo {
@@ -128,6 +108,10 @@ i { margin-right: 0.6vw; }
     margin: 1vw auto;
     width: 100%;
     margin-bottom: 1vw;
+}
+
+.botaoJogo button {
+    margin-top: 10vw;
 }
 
 .tocarMusica {

@@ -126,9 +126,11 @@ function comecarJogar () {
 
     var comecarJogo = document.getElementById("comecarJogo");
     var cardInicio = document.getElementById("cardInicio");
+    var sairPagina = document.getElementById("sairPagina");
 
     comecarJogo.style.display = "flex";
     cardInicio.style.display = "none";
+    sairPagina.style.display = "none";
     carregarPergunta();
 }
 
@@ -143,10 +145,12 @@ function reiniciarJogo() {
     var telaFinal = document.getElementById('telaFinal');
     var cardInicio = document.getElementById('cardInicio');
     var comecarJogo = document.getElementById('comecarJogo');
+    var sairPagina = document.getElementById("sairPagina");
 
     telaFinal.style.display = "none";
     cardInicio.style.display = "flex";
     comecarJogo.style.display = "none";
+    sairPagina.style.display = "flex";
 
     atualizarStatus();
 }
@@ -352,6 +356,7 @@ function finalizar() {
                 <p>Taxa de Acerto: <strong id="taxaFinal">0%</strong></p>
                 <div class="proximaMusica">
                     <button onclick="reiniciarJogo()">Jogar Novamente</button>
+                    <button onclick="dashboard()">Ver Desempnho</button>
                 </div>
             </div>
         </div>`;
@@ -366,6 +371,7 @@ function finalizar() {
                 <p>Taxa de Acerto: <strong id="taxaFinal">0%</strong></p>
                 <div class="proximaMusica">
                     <button onclick="reiniciarJogo()">Jogar Novamente</button>
+                    <button onclick="dashboard()">Ver Desempnho</button>
                 </div>
             </div>
         </div>`;
@@ -377,4 +383,8 @@ function finalizar() {
     document.getElementById("pontuacaoFinal").innerHTML = pontos;
     document.getElementById("acertosFinal").innerHTML = acertos;
     document.getElementById("taxaFinal").innerHTML = `${taxaCalculadaFormatada}%`;
+}
+
+function dashboard() {
+    window.location='dashboard.html';
 }
