@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    font-family: 'Barlow', sans-serif;
+}
+
+/* Barra de Navegação Lateral */
+
+.barraLateral {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 15vw;
+    height: 100vh;
+    background-color: #4F443E;
+    padding: 2vw;
+    position: fixed;
+}
+
+.barraLateralLogo {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 3vw;
+}
+
+.barraLateralLogo img {
+    width: 80%;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.barraLateralLogo img:hover {
+    transform: scale(1.05);
+}
+
+.barraLateralNav {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5vw;
+    width: 100%;
+}
+
+/* Barra de Navegação Lateral */
+
+/* Botão de navegação na barra lateral */
+
+.navButton {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1vw;
+    padding: 1.2vw 1.5vw;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 10px;
+    color: #FDF8F0;
+    font-size: 1vw;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
+}
+
+.navButton i {
+    font-size: 1.3vw;
+}
+
+.navButton:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateX(5px);
+}
+
+.navButton.navButtonAtivo {
+    background-color: #BC9B9A;
+    color: #4F443E;
+}
+
+.navButton.navButtonAtivo i {
+    color: #4F443E;
+}
+
+/* Botão de navegação na barra lateral */
+
+.dashboardPrincipal {
+    margin-left: 14vw;
+    padding: 3vw;
+    background-color: #FDF8F0;
+}
+
+/* Mensagem de Bem Vindo ao usuário */
+
+.saudacao {
+    background: linear-gradient(135deg, #4F443E 0%, #BC9B9A 100%);
+    padding: 2vw;
+    border-radius: 15px;
+    margin-bottom: 1vw;
+    margin-top: -2.5vw;
+    box-shadow: 0 8px 32px rgba(79, 68, 62, 0.15);
+}
+
+.saudacaoConteudo h1 {
+    color: #FDF8F0;
+    font-size: 2.5vw;
+    font-weight: 700;
+    margin-bottom: 0.5vw;
+}
+
+.saudacaoConteudo h1 span {
+    color: #D4B483;
+    font-weight: 800;
+}
+
+.saudacaoConteudo p {
+    color: #FDF8F0;
+    font-size: 1.2vw;
+    font-weight: 400;
+    opacity: 0.9;
+}
+
+/* Mensagem de Bem Vindo ao usuário */
+
+/* KPIS */
+
+.kpisContainer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2vw;
+    margin-bottom: 3vw;
+}
+
+.kpi {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 12px;
+    padding: 2vw;
+    gap: 1.5vw;
+    box-shadow: 0 4px 15px rgba(79, 68, 62, 0.1);
+    transition: transform 0.3s ease;
+    box-shadow: 0.3s ease;
+    border-left: 5px solid #BC9B9A;
+}
+
+.kpi:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(79, 68, 62, 0.2);
+}
+
+.kpiIcone {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4vw;
+    height: 4vw;
+    color: #BC9B9A;
+    background-color: rgba(188, 155, 154, 0.1);
+    font-size: 2.5vw;
+    border-radius: 10px;
+}
+
+.kpiConteudo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3vw;
+}
+
+.kpiLabel {
+    color: #4F443E;
+    font-size: 0.9vw;
+    font-weight: 500;
+    opacity: 0.7;
+}
+
+.kpiValor {
+    color: #4F443E;
+    font-size: 1.8vw;
+    font-weight: 700;
+}
+
+/* KPIS */
+
+/* Gráficos */
+
+.graficosContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2vw;
+    margin-bottom: 3vw;
+}
+
+.graficoCaixa {
+    background-color: white;
+    border-radius: 12px;
+    padding: 2vw;
+    box-shadow: 0 4px 15px rgba(79, 68, 62, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.graficoCaixa:hover {
+    box-shadow: 0 8px 25px rgba(79, 68, 62, 0.15);
+}
+
+.graficoHeader {
+    margin-bottom: 2vw;
+    border-bottom: 2px solid #EEEEEE;
+    padding-bottom: 1vw;
+}
+
+.graficoHeader h2 {
+    color: #4F443E;
+    font-size: 1.5vw;
+    font-weight: 700;
+    margin-bottom: 0.5vw;
+}
+
+.graficoDescricao {
+    color: #4F443E;
+    font-size: 0.9vw;
+    font-weight: 400;
+    opacity: 0.7;
+}
+
+.graficoChaart {
+    position: relative;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.graficoChaart canvas {
+    max-height: 100%;
+}
+
+/* Gráficos */
+
+.estatisticasRapidas {
+    background-color: white;
+    border-radius: 12px;
+    padding: 2vw;
+    box-shadow: 0 4px 15px rgba(79, 68, 62, 0.1);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2vw;
+}
+
+.estatisticaItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5vw;
+    background-color: #FDF8F0;
+    border-radius: 8px;
+    border-left: 4px solid #D4B483;
+}
+
+.estatisticaLabel {
+    color: #4F443E;
+    font-size: 0.95vw;
+    font-weight: 500;
+}
+
+.estatisticaValor {
+    color: #BC9B9A;
+    font-size: 1.3vw;
+    font-weight: 700;
+}
+
+.kpi, .graficoBox, .estatisticaItem {
+    animation: fadeIn 0.5s ease-out;
+}

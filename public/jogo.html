@@ -15,7 +15,7 @@
 </head>
 <body onload="atualizarStatus()">
     <main class="mainJogo">
-        <li class="sairPagina"><a href="#" onclick="limparSessao()"> <i class="fas fa-sign-out-alt"> </i>Sair</a> </li>
+        <li class="sairPagina"><a href="#" onclick="voltarPag()"> <i class="fas fa-sign-out-alt"> </i>Voltar</a> </li>
         
         <div class="cardJogo" id="cardInicio">
             <h2>Acerte a Música: Desafio Hollanda</h2>
@@ -82,9 +82,9 @@
 </html>
 <script>
     // sai da conto do usuário
-    function limparSessao() {
+    function voltarPag() {
         sessionStorage.clear();
-        window.location.href = 'login.html';
+        window.location.href = 'dashboard.html';
     }
 
     // function cadastrar() {

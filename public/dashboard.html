@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Hollanda</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/dashboard.css">
+    <link rel="icon" href="./assets/imgs/iconViolao.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body onload="inicializarDashboard()">
+    <!-- Sidebar Lateral -->
+    <aside class="barraLateral">
+        <div class="barraLateralLogo">
+            <img src="./assets/imgs/logoHollanda.png">
+        </div>
+
+        <nav class="barraLateralNav">
+            <button class="navButton navButtonAtivo" onclick="window.location.href='dashboard.html'">
+                <i class="fas fa-chart-line"></i>
+                <span>Dashboard</span>
+            </button>
+            <button class="navButton" onclick="window.location.href='jogo.html'">
+                <i class="fas fa-play"></i>
+                <span>Jogar Novamente</span>
+            </button>
+            <button class="navButton" onclick="limparSessao()">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Sair</span>
+            </button>
+        </nav>
+    </aside>
+
+    <!-- Conteúdo Principal -->
+    <main class="dashboardPrincipal">
+
+        <!-- Bem Vindo ao Usuário -->
+          
+        <section class="saudacao">
+            <div class="saudacaoConteudo">
+                <h1>Bem-vindo, <span id="nomeUsuario"></span>!</h1>
+                <p>Acompanhe seu desempenho no desafio musical de Chico Buarque</p>
+            </div>
+        </section>
+
+        <!-- Bem Vindo ao Usuário -->
+
+
+        <!-- KPIs Principais -->
+
+        <section class="kpisContainer">
+            <div class="kpi">
+                <div class="kpiIcone">
+                    <i class="fas fa-gamepad"></i>
+                </div>
+                <div class="kpiConteudo">
+                    <p class="kpiLabel">Partidas Jogadas</p>
+                    <p class="kpiValor" id="totalPartidas">0</p>
+                </div>
+            </div>
+
+            <div class="kpi">
+                <div class="kpiIcone">
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="kpiConteudo">
+                    <p class="kpiLabel">Pontuação Total</p>
+                    <p class="kpiValor" id="pontuacaoTotal">0</p>
+                </div>
+            </div>
+
+            <div class="kpi">
+                <div class="kpiIcone">
+                    <i class="fas fa-bullseye"></i>
+                </div>
+                <div class="kpiConteudo">
+                    <p class="kpiLabel">Taxa de Acerto</p>
+                    <p class="kpiValor" id="taxaAcertoKpi">0%</p>
+                </div>
+            </div>
+
+            <div class="kpi">
+                <div class="kpiIcone">
+                    <i class="fas fa-fire"></i>
+                </div>
+                <div class="kpiConteudo">
+                    <p class="kpiLabel">Melhor Sequência</p>
+                    <p class="kpiValor" id="melhorSequencia">0</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- KPIs Principais -->
+
+        <!-- Gráficos (2 Gráficos) -->
+
+        <section class="graficosContainer">
+            <!-- Gráfico de Desempenho ao Longo do Tempo -->
+            <div class="graficoCaixa">
+                <div class="graficoHeader">
+                    <h2>Desempenho ao Longo do Tempo</h2>
+                    <p class="graficoDescricao">Evolução da sua pontuação nas últimas 10 partidas</p>
+                </div>
+                <div class="graficoChaart">
+                    <canvas id="graficoDesempenho"></canvas>
+                </div>
+            </div>
+
+            <!-- Gráfico de Taxa de Acerto -->
+            <div class="graficoCaixa">
+                <div class="graficoHeader">
+                    <h2>Taxa de Acerto</h2>
+                    <p class="graficoDescricao">Proporção de acertos e erros</p>
+                </div>
+                <div class="graficoChaart">
+                    <canvas id="graficoTaxaAcerto"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gráficos (2 Gráficos) -->
+
+        <!-- Estatísticas Rápidas -->
+        <section class="estatisticasRapidas">
+            <div class="estatisticaItem">
+                <span class="estatisticaLabel">Total de Acertos:</span>
+                <span class="estatisticaValor" id="totalAcertos">0</span>
+            </div>
+            <div class="estatisticaItem">
+                <span class="estatisticaLabel">Total de Erros:</span>
+                <span class="estatisticaValor" id="totalErros">0</span>
+            </div>
+            <div class="estatisticaItem">
+                <span class="estatisticaLabel">Pontuação Média:</span>
+                <span class="estatisticaValor" id="pontuacaoMedia">0</span>
+            </div>
+            <div class="estatisticaItem">
+                <span class="estatisticaLabel">Melhor Pontuação:</span>
+                <span class="estatisticaValor" id="melhorPontuacao">0</span>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./js/dashboard.js"></script>
+</body>
+</html>
