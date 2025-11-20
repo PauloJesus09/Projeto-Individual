@@ -1,16 +1,19 @@
 var pontosModel = require("../models/pontosModel");
 
-function cadastrar(req, res) {
+function cadastrarPontosJogo(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var pontos = req.body.pontosServer;
+    var acertos = req.body.acertosServer;
 
     // Faça as validações dos valores
     if (pontos == undefined) {
         res.status(400).send("Seus pontos estão undefined!");
+    } else if (acertos == undefined) {
+        res.status(400).send("Seus acertos estão undefined!");
     } else {
 
-        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(pontos)
+        // Passe os valores como parâmetro e vá para o arquivo pontosModel.js
+        pontosModel.cadastrarPontosJogo(pontos, acertos)
         .then(
             function (resultado) {
                 res.json(resultado);
@@ -29,5 +32,5 @@ function cadastrar(req, res) {
 }
 
 module.exports = {
-    cadastrar
+    cadastrarPontosJogo
 }

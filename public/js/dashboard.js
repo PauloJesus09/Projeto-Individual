@@ -8,27 +8,28 @@ var melhorSequencia = 8;
 var melhorPontuacao = 120;
 var desempenhoPartidas = [85, 92, 78, 95, 88, 100, 82, 110, 98, 105];
 
-
-// ATUALIZAR KPIs
+// atualizando kpis
 function atualizarKPIs() {
-    document.getElementById('nomeUsuario').textContent = nomeUsuario;
-    document.getElementById('totalPartidas').textContent = totalPartidas;
-    document.getElementById('pontuacaoTotal').textContent = pontuacaoTotal;
+    var nomeUsuario = sessionStorage.NOME_USUARIO;
+
+    document.getElementById('nomeUsuario').innerHTML = nomeUsuario;
+    document.getElementById('totalPartidas').innerHTML = totalPartidas;
+    document.getElementById('pontuacaoTotal').innerHTML = pontuacaoTotal;
     
     var taxaAcerto = Math.trunc((totalAcertos / (totalAcertos + totalErros)) * 100);
-    document.getElementById('taxaAcertoKpi').textContent = taxaAcerto + '%';
+    document.getElementById('taxaAcertoKpi').innerHTML = taxaAcerto + '%';
     
-    document.getElementById('melhorSequencia').textContent = melhorSequencia;
-    document.getElementById('totalAcertos').textContent = totalAcertos;
-    document.getElementById('totalErros').textContent = totalErros;
+    document.getElementById('melhorSequencia').innerHTML = melhorSequencia;
+    document.getElementById('totalAcertos').innerHTML = totalAcertos;
+    document.getElementById('totalErros').innerHTML = totalErros;
     
     var pontuacaoMedia = Math.trunc(pontuacaoTotal / totalPartidas);
-    document.getElementById('pontuacaoMedia').textContent = pontuacaoMedia;
+    document.getElementById('pontuacaoMedia').innerHTML = pontuacaoMedia;
     
-    document.getElementById('melhorPontuacao').textContent = melhorPontuacao;
+    document.getElementById('melhorPontuacao').innerHTML = melhorPontuacao;
 }
 
-// CRIAR GRÁFICO DE DESEMPENHO
+// criando o gráfico de desempenho
 function criarGraficoDesempenho() {
     var ctx = document.getElementById('graficoDesempenho').getContext('2d');
     
@@ -36,7 +37,7 @@ function criarGraficoDesempenho() {
         type: 'line',
         data: {
             labels: ['Partida 1', 'Partida 2', 'Partida 3', 'Partida 4', 'Partida 5', 
-                     'Partida 6', 'Partida 7', 'Partida 8', 'Partida 9', 'Partida 10'],
+                    'Partida 6', 'Partida 7', 'Partida 8', 'Partida 9', 'Partida 10'],
             datasets: [{
                 label: 'Pontuação',
                 data: desempenhoPartidas,
@@ -100,7 +101,7 @@ function criarGraficoDesempenho() {
     });
 }
 
-// CRIAR GRÁFICO DE TAXA DE ACERTO
+// gráfico de taxa de acerto em donnut
 function criarGraficoTaxaAcerto() {
     var ctx = document.getElementById('graficoTaxaAcerto').getContext('2d');
     
@@ -152,6 +153,9 @@ function inicializarDashboard() {
 }
 
 function limparSessao() {
+    alert('Você sairá de sua conta, por favor aguarde...')
+    setInterval(() => {
+        window.location.href = 'login.html';
+    }, 3000);
     sessionStorage.clear();
-    window.location.href = 'login.html';
 }

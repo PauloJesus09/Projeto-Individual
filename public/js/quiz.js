@@ -356,7 +356,7 @@ function finalizar() {
                 <p>Taxa de Acerto: <strong id="taxaFinal">0%</strong></p>
                 <div class="proximaMusica">
                     <button onclick="reiniciarJogo()">Jogar Novamente</button>
-                    <button onclick="dashboard()">Ver Desempnho</button>
+                    <button onclick="cadastrarPontosJogo()">Ver Desempenho</button>
                 </div>
             </div>
         </div>`;
@@ -371,7 +371,7 @@ function finalizar() {
                 <p>Taxa de Acerto: <strong id="taxaFinal">0%</strong></p>
                 <div class="proximaMusica">
                     <button onclick="reiniciarJogo()">Jogar Novamente</button>
-                    <button onclick="dashboard()">Ver Desempnho</button>
+                    <button onclick="cadastrarPontosJogo()">Ver Desempenho</button>
                 </div>
             </div>
         </div>`;
@@ -387,4 +387,37 @@ function finalizar() {
 
 function dashboard() {
     window.location='dashboard.html';
+}
+
+function cadastrarPontosJogo() {
+    var pontosVar = pontos;
+    var acertosVar = acertos;
+
+    fetch("/pontos/cadastrarPontosJogo", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        pontosServer: pontosVar,
+        acertosServer: acertosVar,
+      }),
+    })
+        .then(function (resposta) {
+           console.log("resposta: ", resposta);
+           if (resposta.ok) {
+            console.log(`acertos e pontos cadastrados`);
+            dashboard();
+            
+            } else {
+                throw "Houve um erro ao tentar realizar o cadastro!";
+            }
+        })
+        .catch(function (resposta) {
+           console.log(`#ERRO DE REDE: ${resposta}`);
+        });
+        return false;
+         
 }
