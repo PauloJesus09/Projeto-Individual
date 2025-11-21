@@ -5,6 +5,11 @@ function cadastrarPontosJogo(req, res) {
     var pontos = req.body.pontosServer;
     var acertos = req.body.acertosServer;
     var fkUsuario = req.body.fkUsuarioServer;
+    var fkPartida = req.body.fkPartidaServer;
+    console.log(pontos);
+    console.log(acertos);
+    console.log(fkUsuario);
+    console.log(fkPartida);
 
     // Faça as validações dos valores
     if (pontos == undefined) {
@@ -12,11 +17,13 @@ function cadastrarPontosJogo(req, res) {
     } else if (acertos == undefined) {
         res.status(400).send("Seus acertos estão undefined!");
     } else if (fkUsuario == undefined) {
-        res.status(400).send("Seu fk estão undefined!");
+        res.status(400).send("Seus fkUsuarios estão undefined!");
+    } else if (fkPartida == undefined) {
+        res.status(400).send("Seus fkUsuarios estão undefined!");
     } else {
 
         // Passe os valores como parâmetro e vá para o arquivo pontosModel.js
-        pontosModel.cadastrarPontosJogo(pontos, acertos, fkUsuario)
+        pontosModel.cadastrarPontosJogo(pontos, acertos, fkUsuario, fkPartida)
         .then(
             function (resultado) {
                 res.json(resultado);

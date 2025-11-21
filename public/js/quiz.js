@@ -153,6 +153,7 @@ function reiniciarJogo() {
     sairPagina.style.display = "flex";
 
     atualizarStatus();
+    cadastrarPartidas();
 }
 
 // faz a música tocar se tudo estiver certo com o objeto Audio
@@ -356,7 +357,7 @@ function finalizar() {
                 <p>Taxa de Acerto: <strong id="taxaFinal">0%</strong></p>
                 <div class="proximaMusica">
                     <button onclick="reiniciarJogo()">Jogar Novamente</button>
-                    <button onclick="cadastrarPontosJogo()">Ver Desempenho</button>
+                    <button onclick="buscarUltimaPartida()">Ver Desempenho</button>
                 </div>
             </div>
         </div>`;
@@ -371,7 +372,7 @@ function finalizar() {
                 <p>Taxa de Acerto: <strong id="taxaFinal">0%</strong></p>
                 <div class="proximaMusica">
                     <button onclick="reiniciarJogo()">Jogar Novamente</button>
-                    <button onclick="cadastrarPontosJogo()">Ver Desempenho</button>
+                    <button onclick="buscarUltimaPartida()">Ver Desempenho</button>
                 </div>
             </div>
         </div>`;
@@ -389,38 +390,98 @@ function dashboard() {
     window.location='dashboard.html';
 }
 
+var fkUsuario = sessionStorage.ID_USUARIO; 
+
+function buscarUltimaPartida () {
+    fetch("/partidas/buscarUltimaPartida", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+    }).then(function (resposta) {
+        console.log("ESTOU NO THEN DO buscar ultima partida()!")
+
+        if (resposta.ok) {
+            console.log(resposta);
+
+            resposta.json().then(json => {
+                console.log(json);
+                console.log(JSON.stringify(json));
+                sessionStorage.ID_ULTIMAPARTIDA = json[0].idPartida; 
+
+            });
+            cadastrarPartidas();
+        }
+    });
+}
+
+var idUltimaPartida = sessionStorage.ID_ULTIMAPARTIDA;
+if (idUltimaPartida == undefined || idUltimaPartida == 0 || idUltimaPartida == null) {
+    idUltimaPartida = 1;
+} else {
+    idUltimaPartida = Number(idUltimaPartida) + 1;
+} 
+
+function cadastrarPartidas() {
+    
+    fetch("/partidas/cadastrarPartidas", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            // crie um atributo que recebe o valor recuperado aqui
+            // Agora vá para o arquivo routes/usuario.js
+            // pontosServer: pontosVar,
+            // acertosServer: acertosVar,
+            // fkUsuarioServer: fkUsuarioVar,
+            // fkPartidaServer: fkPartidaVar,
+        }),
+    }).then(function (resposta) {
+        console.log("resposta: ", resposta);
+        if (resposta.ok) {
+        console.log(`acertos e pontos cadastrados`);
+        cadastrarPontosJogo();
+
+        } else {
+            throw "Houve um erro ao tentar realizar o cadastro!";
+        }
+    }).catch(function (resposta) {
+       console.log(`#ERRO DE REDE: ${resposta}`);
+    });
+    return false;
+}
+
 function cadastrarPontosJogo() {
     var pontosVar = pontos;
     var acertosVar = acertos;
-    var fkUsuarioVar = sessionStorage.ID_USUARIO;
-    // var fkPartidaVar
+    var fkUsuarioVar = fkUsuario;
+    var fkPartidaVar = idUltimaPartida;
 
     fetch("/pontos/cadastrarPontosJogo", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        // crie um atributo que recebe o valor recuperado aqui
-        // Agora vá para o arquivo routes/usuario.js
-        pontosServer: pontosVar,
-        acertosServer: acertosVar,
-        fkUsuarioServer: fkUsuarioVar,
-      }),
-    })
-        .then(function (resposta) {
-           console.log("resposta: ", resposta);
-           if (resposta.ok) {
-            console.log(`acertos e pontos cadastrados`);
-            dashboard();
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            // crie um atributo que recebe o valor recuperado aqui
+            // Agora vá para o arquivo routes/usuario.js
+            pontosServer: pontosVar,
+            acertosServer: acertosVar,
+            fkUsuarioServer: fkUsuarioVar,
+            fkPartidaServer: fkPartidaVar,
+        }),
+    }).then(function (resposta) {
+        console.log("resposta: ", resposta);
+        if (resposta.ok) {
+        console.log(`acertos e pontos cadastrados`);
+        dashboard();
 
-            } else {
-                throw "Houve um erro ao tentar realizar o cadastro!";
-            }
-        })
-        .catch(function (resposta) {
-           console.log(`#ERRO DE REDE: ${resposta}`);
-        });
-        return false;
-         
+        } else {
+            throw "Houve um erro ao tentar realizar o cadastro!";
+        }
+    }).catch(function (resposta) {
+       console.log(`#ERRO DE REDE: ${resposta}`);
+    });
+    return false;
 }

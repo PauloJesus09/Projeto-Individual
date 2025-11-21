@@ -156,6 +156,6 @@ function limparSessao() {
     alert('Você sairá de sua conta, por favor aguarde...')
     setInterval(() => {
         window.location.href = 'login.html';
-    }, 3000);
+    }, 1500);
     sessionStorage.clear();
 }
