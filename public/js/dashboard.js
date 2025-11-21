@@ -23,10 +23,25 @@ function atualizarKPIs() {
     document.getElementById('totalAcertos').innerHTML = totalAcertos;
     document.getElementById('totalErros').innerHTML = totalErros;
     
-    var pontuacaoMedia = Math.trunc(pontuacaoTotal / totalPartidas);
-    document.getElementById('pontuacaoMedia').innerHTML = pontuacaoMedia;
+    
     
     document.getElementById('melhorPontuacao').innerHTML = melhorPontuacao;
+}
+
+function kpiPontuacaoMedia() {
+    var email = sessionStorage.EMAIL_USUARIO;
+    fetch(`kpiPontuacaoMedia/kpiPontuacaoMedia/${email}`)
+        .then(function(response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(resposta);
+                    
+
+                    var pontuacaoMedia = Math.trunc(resposta[0].pontuacaoMedia);
+                    document.getElementById('pontuacaoMedia').innerHTML = pontuacaoMedia;
+                });
+            }
+        });
 }
 
 // criando o gráfico de desempenho
@@ -148,6 +163,7 @@ function criarGraficoTaxaAcerto() {
 
 function inicializarDashboard() {
     atualizarKPIs();
+    kpiPontuacaoMedia();
     criarGraficoDesempenho();
     criarGraficoTaxaAcerto();
 }
