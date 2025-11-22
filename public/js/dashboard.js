@@ -192,30 +192,6 @@ function graficoTaxaAcerto() {
                                         padding: 15
                                     }
                                 },
-                                // tooltip: {
-                                //     backgroundColor: '#333', // Cor de fundo do tooltip
-                                //     titleColor: '#fff', // Cor do título
-                                //     bodyColor: '#fff', // Cor do corpo do texto
-                                //     borderColor: '#ddd',
-                                //     borderWidth: 1,
-                                //     cornerRadius: 5, // Cantos arredondados
-                                //     callbacks: {
-                                //         label: function (context) {
-                                //             var label = "";
-
-                                //             if (context.label) {
-                                //                 label = context.label + ": ";
-                                //             }
-
-                                //             // Se existir valor (ex: 52)
-                                //             if (context.parsed !== null) {
-                                //                 label += context.parsed + "%";
-                                //             }
-
-                                //             return label;
-                                //         }
-                                //     }
-                                // }
                             }
                         },
                     });
