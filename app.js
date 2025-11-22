@@ -23,6 +23,8 @@ var kpiPontuacaoMediaRouter = require("./src/routes/kpiPontuacaoMedia");
 var kpiQtdPartidas = require("./src/routes/kpiQtdPartidas");
 var kpiMelhorPontuacao = require("./src/routes/kpiMelhorPontuacao");
 var kpiTotalDePontos = require("./src/routes/kpiTotalDePontos");
+var graficoTaxaAcerto = require("./src/routes/graficoTaxaAcerto")
+var graficoDesempenho = require("./src/routes/graficoDesempenho");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -38,6 +40,8 @@ app.use("/kpiPontuacaoMedia", kpiPontuacaoMediaRouter);
 app.use("/kpiQtdPartidas", kpiQtdPartidas);
 app.use("/kpiMelhorPontuacao", kpiMelhorPontuacao);
 app.use("/kpiTotalDePontos", kpiTotalDePontos);
+app.use("/graficoTaxaAcerto", graficoTaxaAcerto);
+app.use("/graficoDesempenho", graficoDesempenho)
 
 app.listen(PORTA_APP, function () {
     console.log(`

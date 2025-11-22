@@ -1,9 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+html {
+    overflow: hidden;
+}
+
 * {
     font-family: 'Barlow', sans-serif;
 }
-
 /* Barra de Navegação Lateral */
 
 .barraLateral {
@@ -126,7 +129,7 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 2vw;
-    margin-bottom: 3vw;
+    margin-bottom: 1vw;
 }
 
 .kpi {
@@ -134,7 +137,7 @@
     align-items: center;
     background-color: white;
     border-radius: 12px;
-    padding: 2vw;
+    padding: 1.5vw;
     gap: 1.5vw;
     box-shadow: 0 4px 15px rgba(79, 68, 62, 0.1);
     transition: transform 0.3s ease;
@@ -229,44 +232,8 @@
     align-items: center;
 }
 
-.graficoChaart canvas {
-    max-height: 100%;
-}
-
 /* Gráficos */
 
-.estatisticasRapidas {
-    background-color: white;
-    border-radius: 12px;
-    padding: 2vw;
-    box-shadow: 0 4px 15px rgba(79, 68, 62, 0.1);
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2vw;
-}
-
-.estatisticaItem {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.5vw;
-    background-color: #FDF8F0;
-    border-radius: 8px;
-    border-left: 4px solid #D4B483;
-}
-
-.estatisticaLabel {
-    color: #4F443E;
-    font-size: 0.95vw;
-    font-weight: 500;
-}
-
-.estatisticaValor {
-    color: #BC9B9A;
-    font-size: 1.3vw;
-    font-weight: 700;
-}
-
-.kpi, .graficoBox, .estatisticaItem {
+.kpi, .graficoCaixa {
     animation: fadeIn 0.5s ease-out;
 }

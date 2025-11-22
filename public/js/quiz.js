@@ -238,19 +238,23 @@ function destacarRespostaCorreta(correta) {
     
     // quando a resposta estiver condizente com a alternativa selecionada do usuário, ela muda a corzinha e fica verdinho
     if (alt1.innerHTML == correta) {
-        alt1.classList.add('correto');
+        alt1.style.backgroundColor = "#27ae60";
+        alt1.style.color = "white";
     }
 
     if (alt2.innerHTML == correta) {
-        alt2.classList.add('correto');
+        alt2.style.backgroundColor = "#27ae60";
+        alt2.style.color = "white";
     }
 
     if (alt3.innerHTML == correta) {
-        alt3.classList.add('correto');
+        alt3.style.backgroundColor = "#27ae60";
+        alt3.style.color = "white";
     }
 
     if (alt4.innerHTML == correta) {
-        alt4.classList.add('correto');
+        alt4.style.backgroundColor = "#27ae60";
+        alt4.style.color = "white";
     }
 }
 
@@ -268,7 +272,8 @@ function responder(resposta, idBotao) {
     if (resposta == questaoAtual.correta) {
 
         // adiciona a cor verde a alternativa correta
-        botao.classList.add("correto");
+        botao.style.backgroundColor = "#27ae60";
+        botao.style.color = "#fff";
         
         if (tentativa == 1) {
             pontos = pontos + 5;
@@ -286,16 +291,18 @@ function responder(resposta, idBotao) {
     } else {
 
         if (tentativa < 3) { 
-
-            botao.classList.add("errado");
+            
             erros++;
             tentativa++;
 
             alert(`Você errou! Tente novamente. Restam ${3 - (tentativa - 1)} tentativas.`);
 
             // tempo que fica em vermelho a alternativa errada
+            botao.style.backgroundColor = "#e74c3c";
+            botao.style.color = "#fff";
             setTimeout(() => {
-                botao.classList.remove("errado");
+                botao.style.backgroundColor = "#FDF8F0";
+                botao.style.color = "#4F443E";
             }, 1000);
         } else {
             
@@ -391,7 +398,6 @@ function dashboard() {
 }
 
 var fkUsuario = sessionStorage.ID_USUARIO; 
-
 function buscarUltimaPartida () {
     fetch("/partidas/buscarUltimaPartida", {
         method: "POST",
@@ -429,14 +435,7 @@ function cadastrarPartidas() {
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-            // crie um atributo que recebe o valor recuperado aqui
-            // Agora vá para o arquivo routes/usuario.js
-            // pontosServer: pontosVar,
-            // acertosServer: acertosVar,
-            // fkUsuarioServer: fkUsuarioVar,
-            // fkPartidaServer: fkPartidaVar,
-        }),
+        body: JSON.stringify({}),
     }).then(function (resposta) {
         console.log("resposta: ", resposta);
         if (resposta.ok) {
@@ -455,6 +454,7 @@ function cadastrarPartidas() {
 function cadastrarPontosJogo() {
     var pontosVar = pontos;
     var acertosVar = acertos;
+    var errosVar = erros;
     var fkUsuarioVar = fkUsuario;
     var fkPartidaVar = idUltimaPartida;
 
@@ -468,6 +468,7 @@ function cadastrarPontosJogo() {
             // Agora vá para o arquivo routes/usuario.js
             pontosServer: pontosVar,
             acertosServer: acertosVar,
+            errosServer: errosVar,
             fkUsuarioServer: fkUsuarioVar,
             fkPartidaServer: fkPartidaVar,
         }),

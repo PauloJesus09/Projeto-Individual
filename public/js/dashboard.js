@@ -1,8 +1,5 @@
-// dadaos de exemplo
-var desempenhoPartidas = [85, 92, 78, 95, 88, 100, 82, 110, 98, 105];
-
 // atualizando kpis
-function atualizarKPIs() {
+function atualizarSessionStorage() {
     var nomeUsuario = document.getElementById('nomeUsuario');
     nomeUsuario.innerHTML = sessionStorage.NOME_USUARIO;
 }
@@ -61,128 +58,176 @@ function kpiTotalDePontos() {
         });
 }
 
+function graficoDesempenho() {
+    var email = sessionStorage.EMAIL_USUARIO;
+    fetch(`graficoDesempenho/graficoDesempenho/${email}`)
+        .then(function(response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(resposta);
+                    resposta[0].pontos;
+                    resposta[0].dataFim;
+                });
+            }
+        });
+}
 
 // criando o gráfico de desempenho
-function criarGraficoDesempenho() {
+function graficoDesempenho() {
     var ctx = document.getElementById('graficoDesempenho').getContext('2d');
-    
-    new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: ['Partida 1', 'Partida 2', 'Partida 3', 'Partida 4', 'Partida 5', 
-                    'Partida 6', 'Partida 7', 'Partida 8', 'Partida 9', 'Partida 10'],
-            datasets: [{
-                label: 'Pontuação',
-                data: desempenhoPartidas,
-                borderColor: '#BC9B9A',
-                backgroundColor: 'rgba(188, 155, 154, 0.1)',
-                borderWidth: 3,
-                fill: true,
-                tension: 0.4,
-                pointRadius: 6,
-                pointBackgroundColor: '#BC9B9A',
-                pointBorderColor: '#FDF8F0',
-                pointBorderWidth: 2,
-                pointHoverRadius: 8,
-                pointHoverBackgroundColor: '#4F443E',
-                pointHoverBorderColor: '#FDF8F0'
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: {
-                    display: true,
-                    labels: {
-                        color: '#4F443E',
-                        font: {
-                            size: 12,
-                            weight: 'bold'
+    var email = sessionStorage.EMAIL_USUARIO;
+
+    fetch(`graficoDesempenho/graficoDesempenho/${email}`)
+        .then(function(response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(resposta);
+
+                    var pontos = [];
+                    var datas = [];
+
+                    for (var i = 0; i < resposta.length; i++) {
+                        pontos.push(resposta[i].pontos);
+
+                        var dataOriginal = resposta[i].dataFim;
+                        var dataPreFormatada = new Date(dataOriginal);
+
+                        var dataFormatada = dataPreFormatada.toLocaleDateString("pt-BR", {day: "2-digit", month: "2-digit", year: "numeric"});
+                        datas.push(dataFormatada);
+                    }
+                    
+                    new Chart(ctx, {
+                        type: 'line',
+                        data: {
+                            labels: datas,
+                            datasets: [{
+                                label: 'Pontuação',
+                                data: pontos,
+                                borderColor: '#BC9B9A',
+                                backgroundColor: 'rgba(188, 155, 154, 0.1)',
+                                borderWidth: 3,
+                                pointRadius: 6,
+                                pointBackgroundColor: '#BC9B9A',
+                                pointBorderColor: '#FDF8F0',
+                                pointHoverRadius: 8,
+                            }]
                         },
-                        padding: 15
-                    }
-                }
-            },
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    max: 120,
-                    ticks: {
-                        color: '#4F443E',
-                        font: {
-                            size: 11
+                        options: {
+                            maintainAspectRatio: false,
+                            scales: {
+                                y: {
+                                    beginAtZero: true,
+                                    max: 50,
+                                    ticks: {
+                                        color: '#4F443E',
+                                        font: {
+                                            size: 13.5
+                                        }
+                                    },
+                                    grid: {
+                                        color: 'rgba(79, 68, 62, 0.1)'
+                                    }
+                                },
+                                x: {
+                                    ticks: {
+                                        color: '#4F443E',
+                                        font: {
+                                            size: 13.5
+                                        }
+                                    },
+                                    grid: {
+                                        display: false
+                                    }
+                                }
+                            }
                         }
-                    },
-                    grid: {
-                        color: 'rgba(79, 68, 62, 0.1)'
-                    }
-                },
-                x: {
-                    ticks: {
-                        color: '#4F443E',
-                        font: {
-                            size: 11
-                        }
-                    },
-                    grid: {
-                        display: false
-                    }
-                }
+                    });
+                });
             }
-        }
-    });
+        });
 }
 
 // gráfico de taxa de acerto em donnut
-function criarGraficoTaxaAcerto() {
+function graficoTaxaAcerto() {
     var ctx = document.getElementById('graficoTaxaAcerto').getContext('2d');
-    
-    var total = totalAcertos + totalErros;
-    var percentualAcertos = Math.round((totalAcertos / total) * 100);
-    var percentualErros = 100 - percentualAcertos;
-    
-    new Chart(ctx, {
-        type: 'doughnut',
-        data: {
-            labels: ['Acertos', 'Erros'],
-            datasets: [{
-                data: [percentualAcertos, percentualErros],
-                backgroundColor: [
-                    '#BC9B9A',
-                    '#D4B483'
-                ],
-                borderColor: [
-                    '#4F443E',
-                    '#4F443E'
-                ],
-                borderWidth: 2
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: {
-                    position: 'bottom',
-                    labels: {
-                        color: '#4F443E',
-                        font: {
-                            size: 12,
-                            weight: 'bold'
+
+    var email = sessionStorage.EMAIL_USUARIO;
+    fetch(`graficoTaxaAcerto/graficoTaxaAcerto/${email}`)
+        .then(function(response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(resposta);
+                    var taxaDeAcerto = Math.trunc(resposta[0].taxaAcertoGeral);
+                    var taxaDeErro = 100 - taxaDeAcerto;
+
+                    new Chart(ctx, {
+                        type: 'doughnut',
+                        data: {
+                            labels: [`Acertos`, `Erros`],
+                            datasets: [{
+                                data: [taxaDeAcerto, taxaDeErro],
+                                backgroundColor: [
+                                    '#BC9B9A',
+                                    '#D4B483'
+                                ],
+                                borderColor: [
+                                    '#4F443E',
+                                    '#4F443E'
+                                ],
+                                borderWidth: 2
+                            }]
                         },
-                        padding: 15
-                    }
-                }
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: {
+                                legend: {
+                                    position: 'top',
+                                    labels: {
+                                        color: '#4F443E',
+                                        font: {
+                                            size: 12,
+                                            weight: 'bold'
+                                        },
+                                        padding: 15
+                                    }
+                                },
+                                // tooltip: {
+                                //     backgroundColor: '#333', // Cor de fundo do tooltip
+                                //     titleColor: '#fff', // Cor do título
+                                //     bodyColor: '#fff', // Cor do corpo do texto
+                                //     borderColor: '#ddd',
+                                //     borderWidth: 1,
+                                //     cornerRadius: 5, // Cantos arredondados
+                                //     callbacks: {
+                                //         label: function (context) {
+                                //             var label = "";
+
+                                //             if (context.label) {
+                                //                 label = context.label + ": ";
+                                //             }
+
+                                //             // Se existir valor (ex: 52)
+                                //             if (context.parsed !== null) {
+                                //                 label += context.parsed + "%";
+                                //             }
+
+                                //             return label;
+                                //         }
+                                //     }
+                                // }
+                            }
+                        },
+                    });
+                });
             }
-        }
-    });
+        });
 }
 
 function inicializarDashboard() {
-    atualizarKPIs();
-    criarGraficoDesempenho();
-    criarGraficoTaxaAcerto();
+    atualizarSessionStorage();
+    graficoDesempenho();
+    graficoTaxaAcerto();
     kpiPontuacaoMedia();
     kpiQtdPartidas();
     kpiMelhorPontuacao();

@@ -122,10 +122,10 @@
       ipt_senha.style.border = `1px solid red`;
       msgSenha.innerHTML = `<span style="color: red"> Preencha o campo Senha! </span>`;
       erro = true;
-    } else if (senhaVar.length < 6) {
+    } else if (senhaVar.length < 8) {
 
       ipt_senha.style.border = `1px solid red`;
-      msgSenha.innerHTML = `<strong> <span style="color: red"> Senha precisa conter no mínimo 6 caracteres! </span> </strong>`;
+      msgSenha.innerHTML = `<strong> <span style="color: red"> Senha precisa conter no mínimo 8 caracteres! </span> </strong>`;
       erro = true;
     } else if (!contemCaracterEspecial) {
 
