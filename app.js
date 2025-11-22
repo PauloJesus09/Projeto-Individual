@@ -20,6 +20,9 @@ var usuarioRouter = require("./src/routes/usuarios");
 var pontosRouter = require("./src/routes/pontos");
 var partidasRouter = require("./src/routes/partidas");
 var kpiPontuacaoMediaRouter = require("./src/routes/kpiPontuacaoMedia");
+var kpiQtdPartidas = require("./src/routes/kpiQtdPartidas");
+var kpiMelhorPontuacao = require("./src/routes/kpiMelhorPontuacao");
+var kpiTotalDePontos = require("./src/routes/kpiTotalDePontos");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -32,6 +35,9 @@ app.use("/usuarios", usuarioRouter);
 app.use("/pontos", pontosRouter);
 app.use("/partidas", partidasRouter);
 app.use("/kpiPontuacaoMedia", kpiPontuacaoMediaRouter);
+app.use("/kpiQtdPartidas", kpiQtdPartidas);
+app.use("/kpiMelhorPontuacao", kpiMelhorPontuacao);
+app.use("/kpiTotalDePontos", kpiTotalDePontos);
 
 app.listen(PORTA_APP, function () {
     console.log(`

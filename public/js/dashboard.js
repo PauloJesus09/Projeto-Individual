@@ -1,31 +1,10 @@
 // dadaos de exemplo
-var nomeUsuario = "Paulo Gonçalves";
-var totalPartidas = 15;
-var pontuacaoTotal = 1250;
-var totalAcertos = 45;
-var totalErros = 15;
-var melhorSequencia = 8;
-var melhorPontuacao = 120;
 var desempenhoPartidas = [85, 92, 78, 95, 88, 100, 82, 110, 98, 105];
 
 // atualizando kpis
 function atualizarKPIs() {
-    var nomeUsuario = sessionStorage.NOME_USUARIO;
-
-    document.getElementById('nomeUsuario').innerHTML = nomeUsuario;
-    document.getElementById('totalPartidas').innerHTML = totalPartidas;
-    document.getElementById('pontuacaoTotal').innerHTML = pontuacaoTotal;
-    
-    var taxaAcerto = Math.trunc((totalAcertos / (totalAcertos + totalErros)) * 100);
-    document.getElementById('taxaAcertoKpi').innerHTML = taxaAcerto + '%';
-    
-    document.getElementById('melhorSequencia').innerHTML = melhorSequencia;
-    document.getElementById('totalAcertos').innerHTML = totalAcertos;
-    document.getElementById('totalErros').innerHTML = totalErros;
-    
-    
-    
-    document.getElementById('melhorPontuacao').innerHTML = melhorPontuacao;
+    var nomeUsuario = document.getElementById('nomeUsuario');
+    nomeUsuario.innerHTML = sessionStorage.NOME_USUARIO;
 }
 
 function kpiPontuacaoMedia() {
@@ -36,13 +15,52 @@ function kpiPontuacaoMedia() {
                 response.json().then(function (resposta) {
                     console.log(resposta);
                     
-
                     var pontuacaoMedia = Math.trunc(resposta[0].pontuacaoMedia);
                     document.getElementById('pontuacaoMedia').innerHTML = pontuacaoMedia;
                 });
             }
         });
 }
+
+function kpiQtdPartidas() {
+    var email = sessionStorage.EMAIL_USUARIO;
+    fetch(`kpiQtdPartidas/kpiQtdPartidas/${email}`)
+        .then(function(response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(resposta);
+                    document.getElementById('totalPartidas').innerHTML = resposta[0].Total;
+                });
+            }
+        });
+}
+
+function kpiMelhorPontuacao() {
+    var email = sessionStorage.EMAIL_USUARIO;
+    fetch(`kpiMelhorPontuacao/kpiMelhorPontuacao/${email}`)
+        .then(function(response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(resposta);
+                    document.getElementById('melhorPontuacao').innerHTML = resposta[0].melhorPontuacao;
+                });
+            }
+        });
+}
+
+function kpiTotalDePontos() {
+    var email = sessionStorage.EMAIL_USUARIO;
+    fetch(`kpiTotalDePontos/kpiTotalDePontos/${email}`)
+        .then(function(response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(resposta);
+                    document.getElementById('totalAcertos').innerHTML = resposta[0].totalPontos;
+                });
+            }
+        });
+}
+
 
 // criando o gráfico de desempenho
 function criarGraficoDesempenho() {
@@ -163,9 +181,12 @@ function criarGraficoTaxaAcerto() {
 
 function inicializarDashboard() {
     atualizarKPIs();
-    kpiPontuacaoMedia();
     criarGraficoDesempenho();
     criarGraficoTaxaAcerto();
+    kpiPontuacaoMedia();
+    kpiQtdPartidas();
+    kpiMelhorPontuacao();
+    kpiTotalDePontos();
 }
 
 function limparSessao() {

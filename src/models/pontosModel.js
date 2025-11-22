@@ -7,7 +7,7 @@ function cadastrarPontosJogo(pontos, acertos, fkUsuario, fkPartida) {
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucaoSql = `
-        INSERT INTO resultado (pontos, totalAcertos, fkUsuario, fkPartida) VALUES ('${pontos}', '${acertos}', '${fkUsuario}', '${fkPartida}');
+        INSERT INTO resultado (pontos, totalAcertos, tentativas, fkUsuario, fkPartida) VALUES ('${pontos}', '${acertos}', '${fkUsuario}', '${fkPartida}');
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
