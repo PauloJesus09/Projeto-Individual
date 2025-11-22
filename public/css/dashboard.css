@@ -94,7 +94,7 @@ html {
 /* Mensagem de Bem Vindo ao usuário */
 
 .saudacao {
-    background: linear-gradient(135deg, #4F443E 0%, #BC9B9A 100%);
+    background: linear-gradient(135deg, #4F443E, #BC9B9A);
     padding: 2vw;
     border-radius: 15px;
     margin-bottom: 1vw;

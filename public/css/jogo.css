@@ -128,6 +128,7 @@ i { margin-right: 0.6vw; }
     align-items: center;
     margin: 1vw auto;
     width: 100%;
+    gap: 1vw;
 }
 
 .botaoJogo button,

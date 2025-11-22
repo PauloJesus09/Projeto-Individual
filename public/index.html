@@ -62,8 +62,6 @@
     </section>
     <!-- Sobre Mim -->
 
-    <hr>
-
     <!-- Conheça Mais  -->
     <section id="conheca">
       <div class="conhecaMaisImg">
@@ -90,14 +88,12 @@
     </section>
     <!-- Conheça Mais -->
 
-    <hr>
-
     <section id="obras">
 
       <div class="obrasMaisFamosas">
-        <img id="obrasMaisFamosas1" src="" class="active">
-        <img id="obrasMaisFamosas2" src="">
-        <img id="obrasMaisFamosas3" src="">
+        <img id="obrasMaisFamosas1" src="./assets/imgs/capaAlbumCalice.jpg" class="active">
+        <img id="obrasMaisFamosas2" src="./assets/imgs/capaAlbuomConstrucaoo.jpg">
+        <img id="obrasMaisFamosas3" src="./assets/imgs/capaAlbum.jpg">
       </div>
 
       <div class="obraMaisFamosasTexto">
@@ -131,8 +127,6 @@
 
     </section>
 
-    <hr>
-
     <!-- Missão e Valores -->
     <section id="missao">
       <div class="carrousel">
@@ -164,8 +158,6 @@
         </div>
     </section>
     <!-- Missão e Valores -->
-
-    <hr>
 
     <!-- Footer -->
     <footer>
@@ -229,6 +221,7 @@
   var imgAtual = 0;
   var txtAtual = 0;
 
+  // Obras Mais Famosas
   setInterval (() => {
     textosObrasFamosas[textosObrasFamosasAtual].classList.remove('active');
     textosObrasFamosasAtual++;
@@ -249,8 +242,9 @@
     }
 
     obrasFamosas[obrasFamosasAtual].classList.add('active');
-  }, 5000);
+  }, 8000);
 
+  // Conheça Mais Sobre 
   setInterval(() => {
     imagemConhecaMais[imgConhecaAtual].classList.remove('active');
     imgConhecaAtual++;
@@ -262,6 +256,7 @@
     imagemConhecaMais[imgConhecaAtual].classList.add('active');
   }, 5000);
 
+  // Missão e Valores
   setInterval(() => {
     textoMissaoValores[txtAtual].classList.remove('active');
     txtAtual++;

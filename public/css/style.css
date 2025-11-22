@@ -256,6 +256,7 @@ header nav .login:hover {
   overflow: hidden;
   border-radius: 10px;
   position: relative;
+  margin-right: 4vw;
 }
 
 #obras .obrasMaisFamosas img {

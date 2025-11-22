@@ -18,6 +18,20 @@
 .imgCaixa img {
     width: 100%;
     height: 100%;
+    border-radius: 10px;
+}
+
+.imgCaixaCadastro {
+    width: 50%;
+    height: 100%;
+    background-color: #dcab83;
+    padding: 5vw;
+}
+
+.imgCaixaCadastro img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
 }
 
 .conteudoCaixa {
