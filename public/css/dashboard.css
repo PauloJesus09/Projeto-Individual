@@ -225,12 +225,19 @@ html {
 }
 
 .graficoChaart {
-    position: relative;
-    height: 350px;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    height: 18vw;
 }
+
+/* .graficoChaart canvas{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vw;
+} */
 
 /* Gráficos */
 

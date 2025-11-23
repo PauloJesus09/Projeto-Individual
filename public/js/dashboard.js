@@ -105,7 +105,7 @@ function graficoDesempenho() {
                                 data: pontos,
                                 borderColor: '#BC9B9A',
                                 backgroundColor: 'rgba(188, 155, 154, 0.1)',
-                                borderWidth: 3,
+                                borderWidth: 1,
                                 pointRadius: 6,
                                 pointBackgroundColor: '#BC9B9A',
                                 pointBorderColor: '#FDF8F0',
