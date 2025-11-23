@@ -52,7 +52,7 @@
           <div class="inputCaixa">
             <button type="button" onclick="cadastrar()">Cadastrar-se</button>
             <div id="div_aguardar" class="loadingGif">
-              <img src="assets/imgs/loading.gif">
+              <!-- <img src="assets/imgs/loading.gif"> -->
             </div>
           </div>
 
@@ -135,8 +135,10 @@
       ipt_senha.style.border = `1px solid green`;
     }
 
-    aguardar();
-    
+    if (erro) {
+      return;
+    }
+
     // Enviando o valor da nova input
     fetch("/usuarios/cadastrar", {
       method: "POST",

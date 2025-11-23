@@ -413,23 +413,27 @@ function buscarUltimaPartida () {
             resposta.json().then(json => {
                 console.log(json);
                 console.log(JSON.stringify(json));
-                sessionStorage.ID_ULTIMAPARTIDA = json[0].idPartida; 
-
+                if (json && json.length > 0) {
+                    sessionStorage.ID_ULTIMAPARTIDA = json[0].idPartida;
+                } else {
+                    sessionStorage.ID_ULTIMAPARTIDA = "0"; 
+                }
+                cadastrarPartidas();
             });
-            cadastrarPartidas();
         }
     });
 }
 
-var idUltimaPartida = sessionStorage.ID_ULTIMAPARTIDA;
-if (idUltimaPartida == undefined || idUltimaPartida == 0 || idUltimaPartida == null) {
-    idUltimaPartida = 1;
-} else {
-    idUltimaPartida = Number(idUltimaPartida) + 1;
-} 
-
 function cadastrarPartidas() {
-    
+    var idUltimaPartida = sessionStorage.ID_ULTIMAPARTIDA;
+    var fkPartidaVar;
+
+    if (idUltimaPartida == undefined || idUltimaPartida == 0 || idUltimaPartida == null || idUltimaPartida == "null" || idUltimaPartida == "0") {
+        fkPartidaVar = 1;
+    } else {
+        fkPartidaVar = Number(idUltimaPartida) + 1; 
+    }
+
     fetch("/partidas/cadastrarPartidas", {
         method: "POST",
         headers: {
@@ -440,7 +444,7 @@ function cadastrarPartidas() {
         console.log("resposta: ", resposta);
         if (resposta.ok) {
         console.log(`acertos e pontos cadastrados`);
-        cadastrarPontosJogo();
+        cadastrarPontosJogo(fkPartidaVar);
 
         } else {
             throw "Houve um erro ao tentar realizar o cadastro!";
@@ -451,12 +455,11 @@ function cadastrarPartidas() {
     return false;
 }
 
-function cadastrarPontosJogo() {
+function cadastrarPontosJogo(fkPartidaVar) {
     var pontosVar = pontos;
     var acertosVar = acertos;
     var errosVar = erros;
     var fkUsuarioVar = fkUsuario;
-    var fkPartidaVar = idUltimaPartida;
 
     fetch("/pontos/cadastrarPontosJogo", {
         method: "POST",

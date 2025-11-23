@@ -97,7 +97,7 @@ function graficoDesempenho() {
                     }
                     
                     new Chart(ctx, {
-                        type: 'line',
+                        type: 'bar',
                         data: {
                             labels: datas,
                             datasets: [{
@@ -105,11 +105,7 @@ function graficoDesempenho() {
                                 data: pontos,
                                 borderColor: '#BC9B9A',
                                 backgroundColor: 'rgba(188, 155, 154, 0.1)',
-                                borderWidth: 1,
-                                pointRadius: 6,
-                                pointBackgroundColor: '#BC9B9A',
-                                pointBorderColor: '#FDF8F0',
-                                pointHoverRadius: 8,
+                                borderWidth: 2,
                             }]
                         },
                         options: {
@@ -214,6 +210,6 @@ function limparSessao() {
     alert('Você sairá de sua conta, por favor aguarde...')
     setInterval(() => {
         window.location.href = 'login.html';
+        sessionStorage.clear();
     }, 1500);
-    sessionStorage.clear();
 }

@@ -7,7 +7,7 @@ function cadastrarPartidas() {
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucaoSql = `
-        INSERT INTO partida () VALUES ();
+        INSERT INTO partida (idPartida) VALUES (default);
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -18,8 +18,7 @@ function buscarUltimaPartida() {
     
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
-    var instrucaoSql = `
-        SELECT idPartida FROM partida ORDER BY idPartida DESC LIMIT 1;
+    var instrucaoSql = `SELECT idPartida FROM partida ORDER BY idPartida DESC LIMIT 1;
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);

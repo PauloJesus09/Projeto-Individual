@@ -46,7 +46,7 @@
                     <div class="inputCaixa">
                         <button type="button" onclick="entrar()">Entrar</button>
                         <div id="div_aguardar" class="loadingGif">
-                            <img src="assets/imgs/loading.gif">
+                            <!-- <img src="assets/imgs/loading.gif"> -->
                         </div>
                     </div>
 
@@ -76,7 +76,7 @@
 </html>
 <script>
 
-    var listaObrigatoria = ['!', '@', '#', '$', '%', '*'];
+    var listaObrigatoria = ['!', '@', '#', '$', '%', '*', '(', ')'];
     function entrar() {
         //aguardar();
 
@@ -92,10 +92,10 @@
             erro = true;
         } else {
             if (emailVar.endsWith('@gmail.com') || emailVar.endsWith('@hotmail.com') || emailVar.endsWith('@outlook.com') || emailVar.endsWith('@yahoo.com') || emailVar.endsWith('@sptech.school') || emailVar.endsWith('@email.com') || emailVar.endsWith('@gov.br')) {
-                ipt_email.style.border = `1px solid green`;
+                // ipt_email.style.border = `1px solid green`;
             } else {
 
-                msgEmail.innerHTML = `<strong> <span style="color: red"> Insira um email válido! </span> </strong>`;
+                msgEmail.innerHTML = `<strong> <span style="color: red"> Credencias Inválidas </span> </strong>`;
                 ipt_email.style.border = `1px solid red`;
                 erro = true;
             }
@@ -113,19 +113,19 @@
             ipt_senha.style.border = `1px solid red`;
             msgSenha.innerHTML = `<span style="color: red"> Preencha o campo Senha! </span>`;
             erro = true;
-        } else if (senhaVar.length < 6) {
+        } else if (senhaVar.length < 8) {
 
             ipt_senha.style.border = `1px solid red`;
-            msgSenha.innerHTML = `<strong> <span style="color: red"> Senha precisa conter no mínimo 6 caracteres! </span> </strong>`;
+            msgSenha.innerHTML = `<strong> <span style="color: red"> Credencias Inválidas </span> </strong>`;
             erro = true;
         } else if (!contemCaracterEspecial) {
 
             ipt_senha.style.border = `1px solid red`;
-            msgSenha.innerHTML = `<strong> <span style="color: red"> Senha inválida! Falta algum caracterer especial (! @ # $ % *) </span> </strong>`;
+            msgSenha.innerHTML = `<strong> <span style="color: red"> Credencias Inválidas </span> </strong>`;
             erro = true;
-        } else {
-
-            ipt_senha.style.border = `1px solid green`;
+        } 
+        if (erro) {
+            return;
         }
 
         console.log("FORM LOGIN: ", emailVar);
