@@ -1,27 +1,27 @@
 // perguntas "armazenadas" no JSON
 var quiz = [
-    {
-        id: "1",
-        pergunta: "Qual música virou um símbolo de esperança contra a opressão?",
-        correta: "Apesar de Você",
-        alternativas: ["Acorda Amor", "Apesar de Você", "Vai Trabalhar Vagabundo", "Milagre Brasileiro"],
-        trechos: [
-            "./musicas/apesar/introApesarDeVoce.mp3",
-            "./musicas/apesar/refraoApesarDeVoce.mp3",
-            "./musicas/apesar/apesarDeVoce.mp3"
-        ]
-    },
-    {
-        id: "2",
-        pergunta: "Que canção transforma o silêncio imposto em grito proibido?",
-        correta: "Cálice",
-        alternativas: ["Samba de Orly", "Corda Bamba", "Olha Maria", "Cálice"],
-        trechos: [
-            "./musicas/calice/introCalice.mp3",
-            "./musicas/calice/refraoCalice.mp3",
-            "./musicas/calice/calice.mp3"
-        ]
-    },
+    // {
+    //     id: "1",
+    //     pergunta: "Qual música virou um símbolo de esperança contra a opressão?",
+    //     correta: "Apesar de Você",
+    //     alternativas: ["Acorda Amor", "Apesar de Você", "Vai Trabalhar Vagabundo", "Milagre Brasileiro"],
+    //     trechos: [
+    //         "./musicas/apesar/introApesarDeVoce.mp3",
+    //         "./musicas/apesar/refraoApesarDeVoce.mp3",
+    //         "./musicas/apesar/apesarDeVoce.mp3"
+    //     ]
+    // },
+    // {
+    //     id: "2",
+    //     pergunta: "Que canção transforma o silêncio imposto em grito proibido?",
+    //     correta: "Cálice",
+    //     alternativas: ["Samba de Orly", "Corda Bamba", "Olha Maria", "Cálice"],
+    //     trechos: [
+    //         "./musicas/calice/introCalice.mp3",
+    //         "./musicas/calice/refraoCalice.mp3",
+    //         "./musicas/calice/calice.mp3"
+    //     ]
+    // },
     {
         id: "3",
         pergunta: "Qual música descreve o fim de um homem comum de forma poética e brutal?",
@@ -37,35 +37,35 @@ var quiz = [
         id: "4",
         pergunta: "Em qual canção uma mulher é usada como heroína e rejeitada logo depois?",
         correta: "Geni e o Zepelim",
-        alternativas: ["Geni e o Zepelim", "Teresa Tristeza", "Folhetim", "Acalanto"],
+        alternativas: ["Teresa Tristeza", "Folhetim", "Geni e o Zepelim", "Acalanto"],
         trechos: [
             "./musicas/geniZepelim/introGeniZepelim.mp3",
             "./musicas/geniZepelim/refraoGeniZepelim.mp3",
             "./musicas/geniZepelim/geniZepelim.mp3"
         ]
     },
-    {
-        id: "5",
-        pergunta: "Qual música retrata a vida de mulheres submissas com tom crítico e simbólico?",
-        correta: "Mulheres de Atenas",
-        alternativas: ["Mulheres de Atenas", "O Meu Guri", "Fado Tropical", "Trocando Em Miúdos"],
-        trechos: [
-            "./musicas/mulheresAtenas/introMulheresAtenas.mp3",
-            "./musicas/mulheresAtenas/refraoMulheresAtenas.mp3",
-            "./musicas/mulheresAtenas/mulheresAtenas.mp3"
-        ]
-    },
-    {
-        id: "6",
-        pergunta: "Qual canção expressa a dor de uma mulher traída em tom teatral?",
-        correta: "Noiva da Cidade",
-        alternativas: ["Angélica", "Deus Lhe Pague", "Noiva da Cidade", "Até o Fim"],
-        trechos: [
-            "./musicas/noivaCidade/introNoivaCidade.mp3",
-            "./musicas/noivaCidade/refraoNoivaCidade.mp3",
-            "./musicas/noivaCidade/noivaCidade.mp3"
-        ]
-    },
+    // {
+    //     id: "5",
+    //     pergunta: "Qual música retrata a vida de mulheres submissas com tom crítico e simbólico?",
+    //     correta: "Mulheres de Atenas",
+    //     alternativas: ["Mulheres de Atenas", "O Meu Guri", "Fado Tropical", "Trocando Em Miúdos"],
+    //     trechos: [
+    //         "./musicas/mulheresAtenas/introMulheresAtenas.mp3",
+    //         "./musicas/mulheresAtenas/refraoMulheresAtenas.mp3",
+    //         "./musicas/mulheresAtenas/mulheresAtenas.mp3"
+    //     ]
+    // },
+    // {
+    //     id: "6",
+    //     pergunta: "Qual canção expressa a dor de uma mulher traída em tom teatral?",
+    //     correta: "Noiva da Cidade",
+    //     alternativas: ["Angélica", "Deus Lhe Pague", "Noiva da Cidade", "Até o Fim"],
+    //     trechos: [
+    //         "./musicas/noivaCidade/introNoivaCidade.mp3",
+    //         "./musicas/noivaCidade/refraoNoivaCidade.mp3",
+    //         "./musicas/noivaCidade/noivaCidade.mp3"
+    //     ]
+    // },
     {
         id: "7",
         pergunta: "Em qual música o reencontro marca o fim de um sofrimento antigo?",
@@ -77,33 +77,33 @@ var quiz = [
             "./musicas/olhoNosOlhos/olhoNosOlhos.mp3"
         ]
     },
-    {
-        id: "8",
-        pergunta: "Qual música levanta perguntas sobre o desejo e o desconhecido?",
-        correta: "O Que Será Que Será",
-        alternativas: ["Cordão", "O Que Será Que Será", "Valsinha", "Tanto Mar"],
-        trechos: [
-            "./musicas/oQueSera/introOqueSera.mp3",
-            "./musicas/oQueSera/refraoOqueSera.mp3",
-            "./musicas/oQueSera/oQueSera.mp3"
-        ]
-    },
-    {
-        id: "9",
-        pergunta: "Qual música transmite a leveza de caminhar livre pela cidade?",
-        correta: "Passareado",
-        alternativas: ["Passareado", "Minha História (Gesubambino)", "Você vai me seguir", "Pedaço de Mim"],
-        trechos: [
-            "./musicas/passareado/introPassareado.mp3",
-            "./musicas/passareado/refraoPassareado.mp3",
-            "./musicas/passareado/passareado.mp3"
-        ]
-    },
+    // {
+    //     id: "8",
+    //     pergunta: "Qual música levanta perguntas sobre o desejo e o desconhecido?",
+    //     correta: "O Que Será Que Será",
+    //     alternativas: ["Cordão", "O Que Será Que Será", "Valsinha", "Tanto Mar"],
+    //     trechos: [
+    //         "./musicas/oQueSera/introOqueSera.mp3",
+    //         "./musicas/oQueSera/refraoOqueSera.mp3",
+    //         "./musicas/oQueSera/oQueSera.mp3"
+    //     ]
+    // },
+    // {
+    //     id: "9",
+    //     pergunta: "Qual música transmite a leveza de caminhar livre pela cidade?",
+    //     correta: "Passareado",
+    //     alternativas: ["Passareado", "Minha História (Gesubambino)", "Você vai me seguir", "Pedaço de Mim"],
+    //     trechos: [
+    //         "./musicas/passareado/introPassareado.mp3",
+    //         "./musicas/passareado/refraoPassareado.mp3",
+    //         "./musicas/passareado/passareado.mp3"
+    //     ]
+    // },
     {
         id: "10",
         pergunta: "Qual música ironiza o trabalhador forçado e o 'malandro'?",
         correta: "Vai Trabalhar Vagabundo",
-        alternativas: ["Corrente", "Basta um Dia", "Homenagem ao Malandro", "Vai Trabalhar Vagabundo"],
+        alternativas: ["Corrente", "Vai Trabalhar Vagabundo", "Basta um Dia", "Homenagem ao Malandro"],
         trechos: [
             "./musicas/vaiTrabalha/introVaiTrabalhar.mp3",
             "./musicas/vaiTrabalha/refraoVaiTrabalhar.mp3",
@@ -336,6 +336,9 @@ function proxima() {
 
     if (perguntaAtual >= quiz.length) {
         finalizar();
+    } else if (perguntaAtual >= quiz.length - 1) {
+        alert(`Atenção... a próxima é a ultima questão!`);
+        return carregarPergunta(); 
     } else {
         carregarPergunta();
     }
